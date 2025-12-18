@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak & Donasi - Toko Sembako Segar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo Berkah Abadi" class="logo-img">
+            </div>
+
+            <div class="judul">
+                <h1>KONTAK & DONASI</h1>
+                <p class="tagline">Saran dan donasi untuk kemajuan bersama</p>
+            </div>
+
+            <div class="time-display">
+                <div class="date" id="current-date"></div>
+                <div class="time" id="current-time"></div>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="cart-icon"></div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+                    <li><a href="products.html"><i class="fas fa-shopping-basket"></i> Produk</a></li>
+                    <li><a href="contact.html" class="active"><i class="fas fa-address-book"></i> Kontak</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        <!-- Feedback Section -->
+        <section class="feedback-section">
+            <div class="section-header">
+                <h2><i class="fas fa-comments"></i> Saran & Kritik</h2>
+                <p class="section-subtitle">Kami menghargai setiap masukan dari pelanggan untuk perbaikan layanan</p>
+            </div>
+
+            <div class="feedback-container">
+                <div class="feedback-form">
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="feedback-name"><i class="fas fa-user"></i> Nama</label>
+                            <input type="text" id="feedback-name" placeholder="Masukkan nama Anda (opsional)">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="feedback-email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="feedback-email" placeholder="Masukkan email Anda (opsional)">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="feedback-type"><i class="fas fa-tag"></i> Jenis Masukan</label>
+                            <select id="feedback-type">
+                                <option value="saran">Saran</option>
+                                <option value="kritik">Kritik</option>
+                                <option value="pujian">Pujian</option>
+                                <option value="keluhan">Keluhan</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="feedback-message"><i class="fas fa-edit"></i> Pesan Anda</label>
+                            <textarea id="feedback-message" rows="6" placeholder="Masukkan saran atau kritik Anda di sini..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-eye"></i> Tampilkan Nama</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="display-name" value="show" checked>
+                                    <span class="radio-custom"></span>
+                                    Tampilkan nama saya
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="display-name" value="anonymous">
+                                    <span class="radio-custom"></span>
+                                    Anonim
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="allow-contact" checked>
+                                <span class="checkbox-custom"></span>
+                                Saya mengizinkan tim untuk menghubungi saya untuk klarifikasi
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit-feedback">
+                            <i class="fas fa-paper-plane"></i> Kirim Masukan
+                        </button>
+                    </form>
+                </div>
+
+                <div class="feedback-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-lightbulb"></i> Mengapa Masukan Anda Penting?</h3>
+                        <ul>
+                            <li>Membantu kami meningkatkan kualitas produk</li>
+                            <li>Mengembangkan layanan yang lebih baik</li>
+                            <li>Menjadi bahan evaluasi tim kami</li>
+                            <li>Menciptakan pengalaman belanja terbaik</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-history"></i> Testimoni Pelanggan</h3>
+                        <div class="testimonial">
+                            <p>"Pelayanan sangat ramah dan produk selalu segar. Terima kasih!"</p>
+                            <span class="testimonial-author">- Ibu Sari (Pelanggan Setia)</span>
+                        </div>
+                        <div class="testimonial">
+                            <p>"Harga terjangkau dengan kualitas premium. Recommended!"</p>
+                            <span class="testimonial-author">- Bapak Budi (Anonim)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section class="donation-section">
+            <div class="section-header">
+                <h2><i class="fas fa-hand-holding-heart"></i> Program Donasi</h2>
+                <p class="section-subtitle">Berkontribusi untuk kebaikan bersama melalui program donasi kami</p>
+            </div>
+
+            <div class="donation-programs">
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-quran"></i>
+                    </div>
+                    <h3>Waqaf Al-Qur'an</h3>
+                    <p>Bantu sedekahkan Al-Qur'an untuk masjid dan mushola yang membutuhkan</p>
+                    <div class="program-target">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>Rp 15.000.000</span>
+                            <span>Target: Rp 20.000.000</span>
+                        </div>
+                    </div>
+                    <button class="btn-donate" data-program="waqaf">Donasi Sekarang</button>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Bantuan Kemanusiaan</h3>
+                    <p>Bantu saudara kita yang terdampak bencana alam dan kesulitan ekonomi</p>
+                    <div class="program-target">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>Rp 9.000.000</span>
+                            <span>Target: Rp 20.000.000</span>
+                        </div>
+                    </div>
+                    <button class="btn-donate" data-program="kemanusiaan">Donasi Sekarang</button>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Beasiswa Pendidikan</h3>
+                    <p>Bantu anak-anak kurang mampu untuk terus bersekolah dan meraih cita-cita</p>
+                    <div class="program-target">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>Rp 12.000.000</span>
+                            <span>Target: Rp 20.000.000</span>
+                        </div>
+                    </div>
+                    <button class="btn-donate" data-program="beasiswa">Donasi Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-methods">
+                <h3><i class="fas fa-credit-card"></i> Metode Pembayaran Donasi</h3>
+
+                <div class="payment-tabs">
+                    <button class="payment-tab active" data-tab="bank">Transfer Bank</button>
+                    <button class="payment-tab" data-tab="ewallet">E-Wallet</button>
+                    <button class="payment-tab" data-tab="retail">Retail</button>
+                </div>
+
+                <div class="payment-content active" id="bank-tab">
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <div class="bank-logo bca"></div>
+                            <div class="bank-info">
+                                <h4>BCA</h4>
+                                <p>123-456-7890</p>
+                                <p>a.n. Yayasan Berkah Abadi</p>
+                            </div>
+                            <button class="btn-copy" data-copy="1234567890">
+                                <i class="fas fa-copy"></i> Salin No. Rekening
+                            </button>
+                        </div>
+
+                        <div class="payment-option">
+                            <div class="bank-logo mandiri"></div>
+                            <div class="bank-info">
+                                <h4>Mandiri</h4>
+                                <p>987-654-3210</p>
+                                <p>a.n. Yayasan Berkah Abadi</p>
+                            </div>
+                            <button class="btn-copy" data-copy="9876543210">
+                                <i class="fas fa-copy"></i> Salin No. Rekening
+                            </button>
+                        </div>
+
+                        <div class="payment-option">
+                            <div class="bank-logo bni"></div>
+                            <div class="bank-info">
+                                <h4>BNI</h4>
+                                <p>555-123-4567</p>
+                                <p>a.n. Yayasan Berkah Abadi</p>
+                            </div>
+                            <button class="btn-copy" data-copy="5551234567">
+                                <i class="fas fa-copy"></i> Salin No. Rekening
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-content" id="ewallet-tab">
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <div class="ewallet-logo dana"></div>
+                            <div class="bank-info">
+                                <h4>DANA</h4>
+                                <p>0812-3456-7890</p>
+                                <p>Yayasan Berkah Abadi</p>
+                            </div>
+                            <button class="btn-copy" data-copy="081234567890">
+                                <i class="fas fa-copy"></i> Salin No. Telepon
+                            </button>
+                        </div>
+
+                        <div class="payment-option">
+                            <div class="ewallet-logo gopay"></div>
+                            <div class="bank-info">
+                                <h4>GoPay</h4>
+                                <p>0812-3456-7890</p>
+                                <p>Yayasan Berkah Abadi</p>
+                            </div>
+                            <button class="btn-copy" data-copy="081234567890">
+                                <i class="fas fa-copy"></i> Salin No. Telepon
+                            </button>
+                        </div>
+
+                        <div class="payment-option">
+                            <div class="ewallet-logo ovo"></div>
+                            <div class="bank-info">
+                                <h4>OVO</h4>
+                                <p>0812-3456-7890</p>
+                                <p>Yayasan Berkah Abadi</p>
+                            </div>
+                            <button class="btn-copy" data-copy="081234567890">
+                                <i class="fas fa-copy"></i> Salin No. Telepon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-content" id="retail-tab">
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <div class="retail-logo alfamart"></div>
+                            <div class="bank-info">
+                                <h4>Alfamart</h4>
+                                <p>Kode Pembayaran: 888 1234 5678 90</p>
+                                <p>Tunjukkan kode di kasir</p>
+                            </div>
+                            <button class="btn-copy" data-copy="8881234567890">
+                                <i class="fas fa-copy"></i> Salin Kode
+                            </button>
+                        </div>
+
+                        <div class="payment-option">
+                            <div class="retail-logo indomaret"></div>
+                            <div class="bank-info">
+                                <h4>Indomaret</h4>
+                                <p>Kode Pembayaran: 777 9876 5432 10</p>
+                                <p>Tunjukkan kode di kasir</p>
+                            </div>
+                            <button class="btn-copy" data-copy="7779876543210">
+                                <i class="fas fa-copy"></i> Salin Kode
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="donation-note">
+                    <p><i class="fas fa-info-circle"></i> Setelah melakukan donasi, harap konfirmasi via WhatsApp ke 0812-3456-7890 dengan menyertakan bukti transfer</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info -->
+        <section class="contact-info-section">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Telepon</h3>
+                    <p>(+62) 811-1112-0670</p>
+                    <p>(+62) 811-1112-0670</p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@xxxx.com</p>
+                    <p>donasi@xxxxx.org</p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Alamat</h3>
+                    <p>Kp. Bojong Salak No. 01 </p>
+                    <p>Desa : Cilampeni, Kec : Katapang, Kabupaten Bandung, Jawa Barat</p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Jam Layanan</h3>
+                    <p>Senin - Minggu</p>
+                    <p>07.00 - 21.00 WIB</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <!-- ... footer content sama ... -->
+    </footer>
+
+    <!-- Donation Modal -->
+    <div class="donation-modal" id="donationModal">
+        <div class="donation-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-hand-holding-heart"></i> Form Donasi</h3>
+                <button class="close-modal" id="closeDonationModal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form id="donationForm">
+                    <div class="form-group">
+                        <label for="donor-name">Nama Donatur</label>
+                        <input type="text" id="donor-name" placeholder="Masukkan nama Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donor-email">Email</label>
+                        <input type="email" id="donor-email" placeholder="Masukkan email Anda">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donor-phone">Nomor Telepon</label>
+                        <input type="tel" id="donor-phone" placeholder="08xx-xxxx-xxxx" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donation-program">Program Donasi</label>
+                        <select id="donation-program" required>
+                            <option value="">Pilih Program</option>
+                            <option value="waqaf">Waqaf Al-Qur'an</option>
+                            <option value="kemanusiaan">Bantuan Kemanusiaan</option>
+                            <option value="beasiswa">Beasiswa Pendidikan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donation-amount">Jumlah Donasi</label>
+                        <div class="amount-options">
+                            <button type="button" class="amount-option" data-amount="50000">Rp 50.000</button>
+                            <button type="button" class="amount-option" data-amount="100000">Rp 100.000</button>
+                            <button type="button" class="amount-option" data-amount="250000">Rp 250.000</button>
+                            <button type="button" class="amount-option" data-amount="500000">Rp 500.000</button>
+                            <button type="button" class="amount-option" data-amount="1000000">Rp 1.000.000</button>
+                        </div>
+                        <input type="number" id="donation-amount" placeholder="Masukkan jumlah donasi" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="donation-message">Pesan (Opsional)</label>
+                        <textarea id="donation-message" rows="3" placeholder="Tulis pesan atau doa Anda..."></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="anon-donation">
+                        <label for="anon-donation">Saya ingin donasi secara anonim</label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter" checked>
+                        <label for="newsletter">Saya ingin menerima update program donasi via email</label>
+                    </div>
+
+                    <button type="submit" class="btn-proceed-donation">
+                        <i class="fas fa-arrow-right"></i> Lanjut ke Pembayaran
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize existing functionality
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+
+            initMobileMenu();
+            initFormValidation();
+
+            // Feedback Form
+            const feedbackForm = document.getElementById('feedbackForm');
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const message = document.getElementById('feedback-message').value.trim();
+
+                    if (!message) {
+                        alert('Harap isi pesan Anda!');
+                        return;
+                    }
+
+                    // Simulate form submission
+                    alert('Terima kasih atas masukan Anda! Kami sangat menghargai kontribusi Anda untuk perbaikan layanan kami.');
+                    feedbackForm.reset();
+                });
+            }
+
+            // Donation Buttons
+            const donationButtons = document.querySelectorAll('.btn-donate');
+            const donationModal = document.getElementById('donationModal');
+            const closeDonationModal = document.getElementById('closeDonationModal');
+
+            donationButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const program = this.dataset.program;
+                    const programSelect = document.getElementById('donation-program');
+
+                    if (programSelect) {
+                        programSelect.value = program;
+                    }
+
+                    donationModal.style.display = 'block';
+                });
+            });
+
+            if (closeDonationModal) {
+                closeDonationModal.addEventListener('click', () => {
+                    donationModal.style.display = 'none';
+                });
+            }
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === donationModal) {
+                    donationModal.style.display = 'none';
+                }
+            });
+
+            // Payment Tabs
+            const paymentTabs = document.querySelectorAll('.payment-tab');
+
+            paymentTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    paymentTabs.forEach(t => t.classList.remove('active'));
+
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+
+                    // Hide all content
+                    document.querySelectorAll('.payment-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    // Show corresponding content
+                    const tabId = this.dataset.tab + '-tab';
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Copy buttons
+            const copyButtons = document.querySelectorAll('.btn-copy');
+
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const textToCopy = this.dataset.copy;
+
+                    // Copy to clipboard
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-check"></i> Tersalin!';
+
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                    });
+                });
+            });
+
+            // Donation amount buttons
+            const amountOptions = document.querySelectorAll('.amount-option');
+            const amountInput = document.getElementById('donation-amount');
+
+            amountOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const amount = this.dataset.amount;
+                    amountInput.value = amount;
+                });
+            });
+
+            // Donation form
+            const donationForm = document.getElementById('donationForm');
+            if (donationForm) {
+                donationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const name = document.getElementById('donor-name').value.trim();
+                    const phone = document.getElementById('donor-phone').value.trim();
+                    const amount = document.getElementById('donation-amount').value.trim();
+                    const program = document.getElementById('donation-program').value;
+
+                    if (!name || !phone || !amount || !program) {
+                        alert('Harap isi semua field yang wajib!');
+                        return;
+                    }
+
+                    // Get selected payment method
+                    const activeTab = document.querySelector('.payment-tab.active');
+                    const paymentMethod = activeTab ? activeTab.dataset.tab : 'bank';
+
+                    // Show confirmation
+                    const programNames = {
+                        'waqaf': 'Waqaf Al-Qur\'an',
+                        'kemanusiaan': 'Bantuan Kemanusiaan',
+                        'beasiswa': 'Beasiswa Pendidikan'
+                    };
+
+                    const paymentMethods = {
+                        'bank': 'Transfer Bank',
+                        'ewallet': 'E-Wallet',
+                        'retail': 'Retail'
+                    };
+
+                    const confirmation = `
+                        Konfirmasi Donasi:
+                        
+                        Nama: ${name}
+                        Telepon: ${phone}
+                        Program: ${programNames[program]}
+                        Jumlah: Rp ${parseInt(amount).toLocaleString('id-ID')}
+                        Metode: ${paymentMethods[paymentMethod]}
+                        
+                        Silakan lanjutkan pembayaran sesuai metode yang dipilih.
+                    `;
+
+                    if (confirm(confirmation)) {
+                        // Show payment instructions
+                        let paymentInstruction = '';
+
+                        switch (paymentMethod) {
+                            case 'bank':
+                                paymentInstruction = 'Silakan transfer ke rekening bank yang tersedia.';
+                                break;
+                            case 'ewallet':
+                                paymentInstruction = 'Silakan transfer ke nomor e-wallet yang tersedia.';
+                                break;
+                            case 'retail':
+                                paymentInstruction = 'Silakan tunjukkan kode pembayaran di kasir Alfamart/Indomaret.';
+                                break;
+                        }
+
+                        alert(`Terima kasih atas donasi Anda!\n\n${paymentInstruction}\n\nJangan lupa konfirmasi via WhatsApp ke 0812-3456-7890 dengan menyertakan bukti transfer.`);
+
+                        // Close modal and reset form
+                        donationModal.style.display = 'none';
+                        donationForm.reset();
+                    }
+                });
+            }
+
+            // Add CSS for this page
+            const style = document.createElement('style');
+            style.textContent = `
+                .feedback-section {
+                    background: white;
+                    border-radius: 12px;
+                    padding: 30px;
+                    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+                    margin-bottom: 40px;
+                }
+                
+                .section-header {
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+                
+                .section-header h2 {
+                    color: #2c3e50;
+                    font-size: 2rem;
+                    margin-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                }
+                
+                .section-subtitle {
+                    color: #7f8c8d;
+                    font-size: 1rem;
+                }
+                
+                .feedback-container {
+                    display: grid;
+                    grid-template-columns: 2fr 1fr;
+                    gap: 30px;
+                }
+                
+                .feedback-form {
+                    padding-right: 30px;
+                    border-right: 1px solid #eee;
+                }
+                
+                .form-group {
+                    margin-bottom: 25px;
+                }
+                
+                .form-group label {
+                    display: block;
+                    margin-bottom: 8px;
+                    font-weight: 500;
+                    color: #2c3e50;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+                
+                .form-group input,
+                .form-group select,
+                .form-group textarea {
+                    width: 100%;
+                    padding: 12px 15px;
+                    border: 2px solid #e0e0e0;
+                    border-radius: 8px;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 0.95rem;
+                    transition: all 0.3s ease;
+                }
+                
+                .form-group textarea {
+                    resize: vertical;
+                }
+                
+                .form-group input:focus,
+                .form-group select:focus,
+                .form-group textarea:focus {
+                    border-color: #3498db;
+                    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+                    outline: none;
+                }
+                
+                .radio-group {
+                    display: flex;
+                    gap: 20px;
+                    margin-top: 10px;
+                }
+                
+                .radio-label {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    cursor: pointer;
+                }
+                
+                .radio-label input[type="radio"] {
+                    display: none;
+                }
+                
+                .radio-custom {
+                    width: 18px;
+                    height: 18px;
+                    border: 2px solid #3498db;
+                    border-radius: 50%;
+                    position: relative;
+                }
+                
+                .radio-label input[type="radio"]:checked + .radio-custom::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 10px;
+                    height: 10px;
+                    background: #3498db;
+                    border-radius: 50%;
+                }
+                
+                .checkbox-label {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    cursor: pointer;
+                }
+                
+                .checkbox-label input[type="checkbox"] {
+                    display: none;
+                }
+                
+                .checkbox-custom {
+                    width: 18px;
+                    height: 18px;
+                    border: 2px solid #3498db;
+                    border-radius: 4px;
+                    position: relative;
+                }
+                
+                .checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+                    content: '✓';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: #3498db;
+                    font-weight: bold;
+                }
+                
+                .btn-submit-feedback {
+                    background: linear-gradient(90deg, #3498db 0%, #2980b9 100%);
+                    color: white;
+                    border: none;
+                    padding: 15px 30px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+                }
+                
+                .btn-submit-feedback:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+                }
+                
+                .feedback-info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+                
+                .info-card {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 8px;
+                }
+                
+                .info-card h3 {
+                    color: #2c3e50;
+                    margin-bottom: 15px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+                .info-card ul {
+                    list-style: none;
+                    padding-left: 0;
+                }
+                
+                .info-card ul li {
+                    padding: 5px 0;
+                    padding-left: 20px;
+                    position: relative;
+                }
+                
+                .info-card ul li::before {
+                    content: '✓';
+                    position: absolute;
+                    left: 0;
+                    color: #2ecc71;
+                    font-weight: bold;
+                }
+                
+                .testimonial {
+                    background: white;
+                    padding: 15px;
+                    border-radius: 6px;
+                    margin-bottom: 15px;
+                    border-left: 4px solid #3498db;
+                }
+                
+                .testimonial p {
+                    font-style: italic;
+                    margin-bottom: 5px;
+                }
+                
+                .testimonial-author {
+                    font-size: 0.9rem;
+                    color: #7f8c8d;
+                }
+                
+                .donation-section {
+                    background: white;
+                    border-radius: 12px;
+                    padding: 30px;
+                    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+                    margin-bottom: 40px;
+                }
+                
+                .donation-programs {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 25px;
+                    margin: 30px 0;
+                }
+                
+                .program-card {
+                    background: #f8f9fa;
+                    border-radius: 10px;
+                    padding: 25px;
+                    text-align: center;
+                    transition: all 0.3s ease;
+                    border: 2px solid transparent;
+                }
+                
+                .program-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                    border-color: #3498db;
+                }
+                
+                .program-icon {
+                    font-size: 3rem;
+                    color: #3498db;
+                    margin-bottom: 15px;
+                }
+                
+                .program-card h3 {
+                    color: #2c3e50;
+                    margin-bottom: 10px;
+                }
+                
+                .program-card p {
+                    color: #7f8c8d;
+                    font-size: 0.9rem;
+                    margin-bottom: 20px;
+                    line-height: 1.5;
+                }
+                
+                .program-target {
+                    margin: 20px 0;
+                }
+                
+                .progress-bar {
+                    height: 8px;
+                    background: #e0e0e0;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    margin-bottom: 8px;
+                }
+                
+                .progress-fill {
+                    height: 100%;
+                    background: linear-gradient(90deg, #2ecc71 0%, #27ae60 100%);
+                    border-radius: 4px;
+                }
+                
+                .progress-text {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 0.85rem;
+                    color: #7f8c8d;
+                }
+                
+                .btn-donate {
+                    background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+                    color: white;
+                    border: none;
+                    padding: 12px 25px;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    width: 100%;
+                }
+                
+                .btn-donate:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+                }
+                
+                .payment-methods {
+                    margin-top: 40px;
+                }
+                
+                .payment-methods h3 {
+                    color: #2c3e50;
+                    margin-bottom: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+                .payment-tabs {
+                    display: flex;
+                    gap: 10px;
+                    margin-bottom: 25px;
+                    border-bottom: 2px solid #eee;
+                    padding-bottom: 10px;
+                }
+                
+                .payment-tab {
+                    padding: 10px 25px;
+                    border: 2px solid #3498db;
+                    background: white;
+                    color: #3498db;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                }
+                
+                .payment-tab.active {
+                    background: #3498db;
+                    color: white;
+                }
+                
+                .payment-content {
+                    display: none;
+                }
+                
+                .payment-content.active {
+                    display: block;
+                }
+                
+                .payment-options {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 20px;
+                    margin-bottom: 30px;
+                }
+                
+                .payment-option {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 8px;
+                    text-align: center;
+                    border: 2px solid transparent;
+                    transition: all 0.3s ease;
+                }
+                
+                .payment-option:hover {
+                    border-color: #3498db;
+                    transform: translateY(-3px);
+                }
+                
+                .bank-logo, .ewallet-logo, .retail-logo {
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto 15px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                
+                .bank-logo.bca { background-image: url('images/bca-logo.png'); }
+                .bank-logo.mandiri { background-image: url('images/mandiri-logo.png'); }
+                .bank-logo.bni { background-image: url('images/bni-logo.png'); }
+                .ewallet-logo.dana { background-image: url('images/dana-logo.png'); }
+                .ewallet-logo.gopay { background-image: url('images/gopay-logo.png'); }
+                .ewallet-logo.ovo { background-image: url('images/ovo-logo.png'); }
+                .retail-logo.alfamart { background-image: url('images/alfamart-logo.png'); }
+                .retail-logo.indomaret { background-image: url('images/indomaret-logo.png'); }
+                
+                .bank-info h4 {
+                    color: #2c3e50;
+                    margin-bottom: 5px;
+                }
+                
+                .bank-info p {
+                    color: #7f8c8d;
+                    font-size: 0.9rem;
+                    margin: 2px 0;
+                }
+                
+                .btn-copy {
+                    background: #3498db;
+                    color: white;
+                    border: none;
+                    padding: 8px 15px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                    margin-top: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                    transition: all 0.3s ease;
+                    width: 100%;
+                }
+                
+                .btn-copy:hover {
+                    background: #2980b9;
+                }
+                
+                .donation-note {
+                    background: #e3f2fd;
+                    padding: 15px;
+                    border-radius: 8px;
+                    border-left: 4px solid #3498db;
+                }
+                
+                .donation-note p {
+                    color: #2c3e50;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+                .contact-info-section {
+                    background: white;
+                    border-radius: 12px;
+                    padding: 30px;
+                    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+                }
+                
+                .contact-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 25px;
+                }
+                
+                .contact-item {
+                    text-align: center;
+                    padding: 25px 15px;
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                    transition: all 0.3s ease;
+                }
+                
+                .contact-item:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                }
+                
+                .contact-item i {
+                    font-size: 2.5rem;
+                    color: #3498db;
+                    margin-bottom: 15px;
+                }
+                
+                .contact-item h3 {
+                    color: #2c3e50;
+                    margin-bottom: 10px;
+                }
+                
+                .contact-item p {
+                    color: #7f8c8d;
+                    font-size: 0.9rem;
+                    margin: 5px 0;
+                }
+                
+                .donation-modal {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.5);
+                    z-index: 2000;
+                    animation: fadeIn 0.3s ease;
+                }
+                
+                .donation-modal-content {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: white;
+                    width: 90%;
+                    max-width: 500px;
+                    max-height: 90vh;
+                    border-radius: 12px;
+                    overflow-y: auto;
+                }
+                
+                .modal-header {
+                    background: #2c3e50;
+                    color: white;
+                    padding: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                
+                .close-modal {
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+                
+                .modal-body {
+                    padding: 25px;
+                }
+                
+                .amount-options {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    margin: 10px 0;
+                }
+                
+                .amount-option {
+                    flex: 1;
+                    min-width: calc(50% - 10px);
+                    padding: 10px;
+                    border: 2px solid #3498db;
+                    background: white;
+                    color: #3498db;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+                
+                .amount-option:hover,
+                .amount-option.active {
+                    background: #3498db;
+                    color: white;
+                }
+                
+                .btn-proceed-donation {
+                    background: linear-gradient(90deg, #2ecc71 0%, #27ae60 100%);
+                    color: white;
+                    border: none;
+                    padding: 15px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    margin-top: 20px;
+                }
+                
+                .btn-proceed-donation:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+                }
+                
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                
+                @media (max-width: 768px) {
+                    .feedback-container {
+                        grid-template-columns: 1fr;
+                    }
+                    
+                    .feedback-form {
+                        padding-right: 0;
+                        border-right: none;
+                        border-bottom: 1px solid #eee;
+                        padding-bottom: 30px;
+                        margin-bottom: 30px;
+                    }
+                    
+                    .donation-programs {
+                        grid-template-columns: 1fr;
+                    }
+                    
+                    .payment-options {
+                        grid-template-columns: 1fr;
+                    }
+                    
+                    .contact-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    
+                    .payment-tabs {
+                        flex-direction: column;
+                    }
+                    
+                    .payment-tab {
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    .contact-grid {
+                        grid-template-columns: 1fr;
+                    }
+                    
+                    .amount-option {
+                        min-width: calc(100% - 10px);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+
+</html>
