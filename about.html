@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - MM Amandamart Katapang</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header (sama seperti index.html) -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo Amandamart Katapang" class="logo-img">
+            </div>
+
+            <div class="judul">
+                <h1>MM Amart KATAPANG</h1>
+                <p class="tagline">AMANDAMART KATAPANG - Segar, Berkualitas, Terjangkau</p>
+            </div>
+
+            <div class="time-display">
+                <div class="date" id="current-date"></div>
+                <div class="time" id="current-time"></div>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="cart-icon"></div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+                    <li><a href="products.html"><i class="fas fa-shopping-basket"></i> Produk</a></li>
+                    <li><a href="contact.html"><i class="fas fa-address-book"></i> Kontak</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        <!-- Iklan Banner Section -->
+        <section class="ad-banner-section">
+            <h2><i class="fas fa-ad"></i> Promo Spesial</h2>
+            <div class="ad-banners">
+                <div class="ad-banner video-ad">
+                    <div class="video-container">
+                        <video autoplay muted loop playsinline>
+                            <source src="images/promo-video.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung video tag.
+                        </video>
+                        <div class="video-overlay">
+                            <h3>Promo Akhir Tahun</h3>
+                            <p>Diskon hingga 50%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ad-banner image-ad">
+                    <img src="images/promo-1.jpg" alt="Promo Beras">
+                    <div class="ad-overlay">
+                        <h3>Beras Premium</h3>
+                        <p>Harga Spesial</p>
+                    </div>
+                </div>
+
+                <div class="ad-banner image-ad">
+                    <img src="images/promo-2.jpg" alt="Promo Minyak">
+                    <div class="ad-overlay">
+                        <h3>Minyak Goreng</h3>
+                        <p>Belí 2 Gratis 1</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Maps Section -->
+        <section class="maps-section">
+            <h2><i class="fas fa-map-marked-alt"></i> Lokasi Toko Kami</h2>
+            <p class="section-subtitle">Kunjungi toko fisik kami untuk pengalaman belanja terbaik</p>
+
+            <div class="map-container">
+                <div class="map-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-store"></i> Informasi Toko</h3>
+                        <p><strong>Alamat:</strong> Kp. Bojong Salak No. 01, </p>
+						<P><strong>Desa : Cilampeni, Kec : Katapang, Kabupaten Bandung, Jawa Barat<strong></P>
+                        <p><strong>Jam Buka:</strong> 07.00 - 21.00 (Setiap Hari)</p>
+                        <p><strong>Telepon:</strong> (021) 1234-5678</p>
+                        <p><strong>Parkir:</strong> Tersedia luas untuk mobil dan motor</p>
+                    </div>
+
+                    <div class="directions">
+                        <h4><i class="fas fa-directions"></i> Petunjuk Arah</h4>
+                        <ul>
+                            <li>Dari pusat kota: Ikuti Jl. Merdeka sampai bundaran, belok kiri ke Jl. Sembako</li>
+                            <li>Dari tol: Keluar di Gerbang Tol Berkahan Timur, lurus 2km</li>
+                            <li>Transportasi umum: Naik angkot nomor 05 atau 12, turun di halto Toko Sembako</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="map-wrapper">
+                    <!-- Google Maps Embed -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613506864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1628579370624!5m2!1sen!2sus"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="Lokasi Toko Sembako Segar">
+                    </iframe>
+
+                    <div class="map-actions">
+                        <a href="https://maps.google.com/?q=Jl.+Raya+Sembako+No.+123,+Kota+Berkahan" target="_blank" class="btn-direction">
+                            <i class="fas fa-route"></i> Dapatkan Petunjuk Arah
+                        </a>
+                        <a href="https://www.google.com/maps/dir//Jl.+Raya+Sembako+No.+123,+Kota+Berkahan" target="_blank" class="btn-direction">
+                            <i class="fas fa-car"></i> Mulai Navigasi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Info -->
+        <section class="additional-info">
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Tim Kami</h3>
+                    <p>Staff profesional dan ramah siap melayani Anda</p>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-award"></i>
+                    <h3>Penghargaan</h3>
+                    <p>Penjual sembako terbaik 2023</p>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Kualitas</h3>
+                    <p>Produk segar langsung dari petani</p>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-truck"></i>
+                    <h3>Pengiriman</h3>
+                    <p>Gratis ongkir untuk area tertentu</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (sama seperti index.html) -->
+    <footer class="main-footer">
+        <!-- ... footer content sama ... -->
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Additional CSS for this page
+        const style = document.createElement('style');
+        style.textContent = `
+            .ad-banner-section {
+                background: white;
+                border-radius: 12px;
+                padding: 25px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+                margin-bottom: 30px;
+            }
+            
+            .ad-banner-section h2 {
+                color: #2c3e50;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .ad-banners {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            
+            .ad-banner {
+                border-radius: 10px;
+                overflow: hidden;
+                height: 200px;
+                position: relative;
+            }
+            
+            .video-container video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            .ad-banner img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            .video-overlay, .ad-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(transparent, rgba(0,0,0,0.7));
+                color: white;
+                padding: 20px;
+            }
+            
+            .maps-section {
+                background: white;
+                border-radius: 12px;
+                padding: 25px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+                margin-bottom: 30px;
+            }
+            
+            .map-container {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                gap: 30px;
+                margin-top: 20px;
+            }
+            
+            .info-card, .directions {
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+            
+            .map-actions {
+                display: flex;
+                gap: 15px;
+                margin-top: 15px;
+            }
+            
+            .btn-direction {
+                background: #3498db;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 6px;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s ease;
+            }
+            
+            .btn-direction:hover {
+                background: #2980b9;
+                transform: translateY(-2px);
+            }
+            
+            .additional-info {
+                background: white;
+                border-radius: 12px;
+                padding: 25px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            }
+            
+            .info-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            
+            .info-item {
+                text-align: center;
+                padding: 20px;
+                border-radius: 8px;
+                background: #f8f9fa;
+                transition: all 0.3s ease;
+            }
+            
+            .info-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .info-item i {
+                font-size: 2rem;
+                color: #3498db;
+                margin-bottom: 15px;
+            }
+            
+            @media (max-width: 768px) {
+                .ad-banners {
+                    grid-template-columns: 1fr;
+                }
+                
+                .map-container {
+                    grid-template-columns: 1fr;
+                }
+                
+                .info-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                
+                .map-actions {
+                    flex-direction: column;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
