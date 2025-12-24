@@ -1,168 +1,13 @@
-/* MOBILE FIRST - START FROM SMALLEST */
-/* 1. Untuk semua handphone (landscape & portrait) */
-@media (max-width: 767px) {
-    .main-header {
-        flex-direction: column;
-        padding: 0.8rem 1rem;
-        gap: 0.8rem;
-    }
-    
-    .logo img {
-        height: 50px;
-    }
-    
-    .title h1 {
-        font-size: 1.6rem;
-        line-height: 1.3;
-    }
-    
-    .live-time {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-    
-    /* Navigation */
-    .main-nav ul {
-        flex-direction: column;
-        padding: 0.8rem;
-        gap: 0.5rem;
-    }
-    
-    .main-nav a {
-        display: block;
-        width: 100%;
-        margin: 0;
-        padding: 0.8rem;
-        text-align: center;
-        border-radius: 8px;
-    }
-    
-    /* Container & Layout */
-    .container {
-        grid-template-columns: 1fr;
-        padding: 0 0.8rem;
-        gap: 1.5rem;
-    }
-    
-    /* Banner */
-    .banner {
-        margin: 1rem 0.8rem;
-        border-radius: 10px;
-        aspect-ratio: 16/9; /* Lebih tinggi untuk mobile */
-    }
-    
-    .banner-text {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        width: 100%;
-        margin-top: -4rem;
-        padding: 1rem;
-        border-radius: 0 0 10px 10px;
-    }
-    
-    .banner-text h2 {
-        font-size: 1.2rem;
-    }
-}
+/* mobile.css - CSS Responsive untuk A-Mart Katapang */
 
-/* 2. Handphone ukuran sedang (480px ke bawah) */
-@media (max-width: 480px) {
-    .title h1 {
-        font-size: 1.4rem;
-    }
-    
-    .banner {
-        aspect-ratio: 4/3;
-    }
-    
-    .guestbook {
-        padding: 1rem;
-    }
-    
-    .guestbook input,
-    .guestbook textarea,
-    .guestbook select {
-        padding: 0.7rem;
-        font-size: 16px; /* Mencegah zoom di iOS */
-    }
-    
-    /* Product Grid */
-    .product-grid, 
-    .catalog-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .product-item,
-    .catalog-item {
-        padding: 1rem;
-    }
-    
-    .product-item img,
-    .catalog-item img {
-        height: 120px;
-    }
-    
-    /* Footer */
-    .social-media {
-        gap: 0.8rem;
-    }
-    
-    .social-media img {
-        width: 32px;
-        height: 32px;
-    }
-}
+/* ===========================================
+   MOBILE FIRST APPROACH (min-width)
+   =========================================== */
 
-/* 3. Handphone sangat kecil (360px ke bawah) */
-@media (max-width: 360px) {
-    .title h1 {
-        font-size: 1.2rem;
-    }
-    
-    .main-nav a {
-        padding: 0.7rem;
-        font-size: 0.9rem;
-    }
-    
-    .product-item h4,
-    .catalog-item h4 {
-        font-size: 0.9rem;
-    }
-    
-    .social-media img {
-        width: 28px;
-        height: 28px;
-    }
-}
+/* 1. BASE STYLES UNTUK MOBILE TERKECIL (0-360px) */
+/* Tidak perlu media query - ini default mobile first */
 
-/* 4. Fix untuk iOS Safari */
-@supports (-webkit-touch-callout: none) {
-    /* CSS khusus untuk iOS */
-    .guestbook input,
-    .guestbook textarea,
-    .guestbook select {
-        font-size: 16px !important;
-    }
-    
-    /* Fix untuk sticky elements */
-    .main-header {
-        position: -webkit-sticky;
-        position: sticky;
-    }
-}
-
-/* 5. Fix untuk Chrome Android */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-    .main-nav a {
-        -webkit-tap-highlight-color: transparent;
-    }
-}
-
-/* mobile.css - Tambahan untuk mobile menu */
-
-/* MOBILE MENU TOGGLE */
+/* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -174,6 +19,7 @@
     cursor: pointer;
     padding: 0;
     margin-left: 15px;
+    z-index: 1001;
 }
 
 .mobile-menu-toggle span {
@@ -182,7 +28,7 @@
     width: 100%;
     background: white;
     border-radius: 3px;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
@@ -197,42 +43,543 @@
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* MOBILE NAVIGATION */
-@media (max-width: 768px) {
+/* Header Mobile */
+.main-header {
+    flex-direction: column;
+    padding: 0.8rem 1rem;
+    gap: 0.8rem;
+    position: relative;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.title h1 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.live-time {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    text-align: center;
+    order: 3; /* Pindah ke bawah di mobile */
+    width: 100%;
+}
+
+/* Navigation Mobile (Hidden by default) */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--color-secondary);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+    overflow-y: auto;
+    padding-top: 70px;
+}
+
+.main-nav.active {
+    left: 0;
+}
+
+.main-nav ul {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+}
+
+.main-nav li {
+    margin: 0;
+    width: 100%;
+}
+
+.main-nav a {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    text-align: left;
+    border-radius: 8px;
+    font-size: 1rem;
+    border-left: 4px solid transparent;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+    border-left-color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Overlay ketika menu aktif */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.nav-overlay.active {
+    display: block;
+}
+
+/* Container & Layout Mobile */
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.8rem;
+    gap: 1.5rem;
+}
+
+/* Banner Mobile */
+.banner {
+    margin: 1rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.banner-text {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(42, 157, 143, 0.95);
+    margin-top: 0;
+}
+
+.banner-text h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.banner-text .price {
+    font-size: 1.5rem;
+}
+
+/* Guestbook Mobile */
+.guestbook {
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.guestbook h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.guestbook input,
+.guestbook textarea,
+.guestbook select {
+    padding: 0.8rem;
+    font-size: 16px; /* Mencegah zoom di iOS */
+    margin-bottom: 0.8rem;
+    width: 100%;
+}
+
+.guestbook button {
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+/* Product Grid Mobile */
+.product-grid,
+.catalog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.product-item,
+.catalog-item {
+    padding: 1rem;
+}
+
+.product-item img,
+.catalog-item img {
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Footer Mobile */
+.main-footer {
+    padding: 1.5rem 1rem;
+}
+
+.social-media {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.social-media img {
+    width: 32px;
+    height: 32px;
+}
+
+.footer-info h4 {
+    font-size: 1.1rem;
+}
+
+/* ===========================================
+   BREAKPOINT UNTUK UKURAN LEBIH BESAR
+   =========================================== */
+
+/* 2. HANDPHONE UKURAN SEDANG (361px - 480px) */
+@media (min-width: 361px) {
+    .title h1 {
+        font-size: 1.5rem;
+    }
+    
+    .banner img {
+        height: 180px;
+    }
+    
+    .product-grid,
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .social-media img {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* 3. HANDPHONE BESAR & TABLET KECIL (481px - 767px) */
+@media (min-width: 481px) {
+    .main-header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+    }
+    
+    .title h1 {
+        font-size: 1.6rem;
+        text-align: left;
+    }
+    
+    .live-time {
+        order: 0;
+        width: auto;
+    }
+    
     .mobile-menu-toggle {
         display: flex;
     }
     
-    .main-nav {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        background: var(--color-secondary);
-        transition: left 0.3s ease;
-        z-index: 999;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    .banner img {
+        height: 220px;
     }
     
-    .main-nav.active {
+    .banner-text {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: auto;
+        max-width: 70%;
+    }
+    
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .product-grid,
+    .catalog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .social-media img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* 4. TABLET (768px - 1023px) */
+@media (min-width: 768px) {
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+    
+    .main-nav {
+        position: static;
+        width: 100%;
+        height: auto;
+        background: var(--color-secondary);
+        box-shadow: none;
+        padding-top: 0;
         left: 0;
     }
     
     .main-nav ul {
-        flex-direction: column;
+        flex-direction: row;
         padding: 1rem;
+        gap: 0;
     }
     
     .main-nav li {
-        margin: 0.5rem 0;
-        width: 100%;
+        width: auto;
     }
     
     .main-nav a {
-        display: block;
-        padding: 1rem;
+        padding: 0.5rem 1.5rem;
         text-align: center;
-        border-radius: 8px;
-        font-size: 1.1rem;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .main-nav a.active,
+    .main-nav a:hover {
+        border-left: none;
+        border-bottom-color: var(--color-accent);
+    }
+    
+    .nav-overlay {
+        display: none !important;
+    }
+    
+    .container {
+        grid-template-columns: 300px 1fr;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 2rem auto;
+    }
+    
+    .banner {
+        margin: 2rem auto;
+        max-width: 1200px;
+    }
+    
+    .banner img {
+        height: 250px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .catalog-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* 5. DESKTOP (1024px ke atas) */
+@media (min-width: 1024px) {
+    .main-header {
+        padding: 1rem 2rem;
+    }
+    
+    .title h1 {
+        font-size: 2rem;
+    }
+    
+    .banner img {
+        height: 300px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .catalog-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .container {
+        grid-template-columns: 350px 1fr;
+    }
+}
+
+/* ===========================================
+   FIX UNTUK BROWSER SPESIFIK
+   =========================================== */
+
+/* Fix untuk iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    /* Mencegah zoom otomatis di input */
+    .guestbook input,
+    .guestbook textarea,
+    .guestbook select {
+        font-size: 16px !important;
+        transform: translateZ(0); /* Fix rendering */
+    }
+    
+    /* Fix untuk safe areas (notch) */
+    .main-header {
+        padding-top: env(safe-area-inset-top);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+    
+    .main-footer {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    /* Fix untuk sticky elements */
+    .main-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+}
+
+/* Fix untuk Chrome Android & Edge */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .main-nav a,
+    .guestbook button,
+    .add-to-cart {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Fix untuk smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Fix untuk Firefox */
+@-moz-document url-prefix() {
+    .main-nav {
+        scrollbar-width: thin;
+    }
+    
+    input, textarea {
+        background-color: white;
+    }
+}
+
+/* ===========================================
+   UTILITY CLASSES UNTUK MOBILE
+   =========================================== */
+
+/* Hide on mobile, show on desktop */
+.mobile-only {
+    display: block;
+}
+
+.desktop-only {
+    display: none;
+}
+
+/* Hide on desktop, show on mobile */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+    
+    .desktop-only {
+        display: block;
+    }
+}
+
+/* Touch target minimum size */
+.touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prevent text size adjustment */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* ===========================================
+   ANIMATIONS UNTUK MOBILE
+   =========================================== */
+
+/* Slide in animation */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply animations */
+.product-item,
+.catalog-item {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.banner {
+    animation: slideInFromRight 0.6s ease-out;
+}
+
+/* ===========================================
+   RESPONSIVE TYPOGRAPHY
+   =========================================== */
+
+/* Fluid typography */
+.title h1 {
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+}
+
+.banner-text h2 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+.page-title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+/* Line height optimal untuk mobile */
+p, li, a {
+    line-height: 1.6;
+}
+
+/* Heading hierarchy untuk mobile */
+h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); }
+h4 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
