@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /php/
+Disallow: /config/
+
+Sitemap: https://www.a-mart-katapang.com/sitemap.xml
