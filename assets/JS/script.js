@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (orderButton) {
         orderButton.addEventListener('click', function() {
             // Buat pesan WhatsApp
-            const phone = '628389188903'; // Ganti dengan nomor Anda
+            const phone = '6281389188903'; // Ganti dengan nomor Anda
             const message = `Halo, saya ingin memesan Telur Ayam Ayam Negri, bisa Bantu saya ?.`;
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
             
