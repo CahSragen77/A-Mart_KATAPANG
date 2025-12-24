@@ -1,0 +1,34 @@
+/* ==============================
+   STYLE KHUSUS HALAMAN LOKASI
+   ============================== */
+
+.location-controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+    gap: 1rem;
+}
+
+/* tombol */
+.btn-home, .btn-navigate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* ... LANJUTKAN SEMUA CSS DARI <style> ... */
+
+/* RESPONSIVE */
+@media (max-width: 768px) { ... }
+@media (max-width: 480px) { ... }
