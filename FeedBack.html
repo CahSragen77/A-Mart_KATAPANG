@@ -1,0 +1,26 @@
+<!-- Di dalam file feedback.html, bagian form saran -->
+<section class="feedback-form">
+    <h2>Kotak Saran & Kritik</h2>
+    <!-- Perhatikan atribut action dan method -->
+    <form action="php/feedback.php" method="POST">
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="display_name" value="show" checked> 
+                Tampilkan Nama Saya
+            </label>
+            <label>
+                <input type="radio" name="display_name" value="hide"> 
+                Anonim
+            </label>
+        </div>
+        
+        <div id="nameField">
+            <input type="text" name="nama" placeholder="Nama Lengkap (jika bukan anonim)">
+        </div>
+        
+        <textarea name="saran" placeholder="Tulis saran atau kritik membangun Anda di sini..." 
+                  rows="5" required></textarea>
+        
+        <button type="submit">Kirim Saran</button>
+    </form>
+</section>
