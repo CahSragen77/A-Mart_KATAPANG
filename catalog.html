@@ -1,46 +1,437 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- Meta tag sama -->
-    <title>A-Mart Katapang - Katalog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Katalog produk A-Mart Katapang. Belanja beras, minyak, telur, daging, dan sembako lainnya dengan harga terjangkau.">
+    <meta name="keywords" content="katalog, harga beras, harga minyak, harga telur, sembako, belanja online">
+    
+    <title>Katalog Produk - A-Mart Katapang</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/elegant-colors.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico">
 </head>
 <body>
-    <!-- Header & Nav sama -->
-
-    <main class="catalog-page">
-        <h2>Katalog Produk</h2>
-        <div class="filter">
-            <button class="filter-btn active" data-category="all">Semua</button>
-            <button class="filter-btn" data-category="pcs">Per Pcs</button>
-            <button class="filter-btn" data-category="kilo">Per Kilo</button>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="A-Mart Katapang Logo" width="60">
         </div>
+        <div class="title">
+            <h1>A-Mart Katapang</h1>
+            <p>Katalog Produk</p>
+        </div>
+        <div class="live-time" id="liveTime">
+            <!-- Waktu akan diisi JS -->
+        </div>
+    </header>
 
+    <!-- NAVIGASI -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="location.html">Lokasi</a></li>
+            <li><a href="catalog.html" class="active">Katalog & Belanja</a></li>
+            <li><a href="feedback.html">Saran & Donasi</a></li>
+        </ul>
+    </nav>
+
+    <!-- KONTEN UTAMA -->
+    <main class="catalog-container">
+        <h2 class="page-title">🛍️ Katalog Produk Kami</h2>
+        <p class="page-subtitle">Klik produk untuk menambahkan ke keranjang belanja</p>
+        
+        <!-- FILTER -->
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">Semua Produk</button>
+            <button class="filter-btn" data-filter="sembako">Sembako</button>
+            <button class="filter-btn" data-filter="daging">Daging & Ikan</button>
+            <button class="filter-btn" data-filter="buah">Buah & Sayur</button>
+        </div>
+        
+        <!-- PRODUK GRID -->
         <div class="catalog-grid">
-            <!-- Contoh 1 produk -->
-            <div class="catalog-item" data-price-pcs="5000" data-price-kilo="28000" data-category="pcs kilo">
-                <img src="assets/products/telur.jpg" alt="Telur Ayam" onclick="addToCart('Telur Ayam', 5000, 'pcs')">
-                <h4>Telur Ayam</h4>
-                <p class="price">Rp 5.000 / pcs</p>
-                <p class="price-kilo">Rp 28.000 / kg</p>
-                <button onclick="addToCart('Telur Ayam', 5000, 'pcs')">+ Keranjang</button>
+            <!-- Produk 1 -->
+            <div class="product-card" data-category="sembako">
+                <img src="assets/images/products/telur.jpg" alt="Telur Ayam" 
+                     onerror="this.src='https://via.placeholder.com/300x200?text=Telur+Ayam'">
+                <h3>Telur Ayam Segar</h3>
+                <p class="price">Rp 28.000 / kg</p>
+                <p class="unit">Rp 5.000 / butir</p>
+                <button class="add-to-cart" data-product="Telur Ayam" data-price="28000">
+                    + Keranjang
+                </button>
             </div>
-            <!-- Produk lainnya -->
+            
+            <!-- Produk 2 -->
+            <div class="product-card" data-category="sembako">
+                <img src="assets/images/products/beras.jpg" alt="Beras Premium"
+                     onerror="this.src='https://via.placeholder.com/300x200?text=Beras+Premium'">
+                <h3>Beras Premium</h3>
+                <p class="price">Rp 12.500 / kg</p>
+                <p class="unit">Rp 125.000 / 10kg</p>
+                <button class="add-to-cart" data-product="Beras Premium" data-price="12500">
+                    + Keranjang
+                </button>
+            </div>
+            
+            <!-- Produk 3-20 (silahkan tambah sesuai kebutuhan) -->
+            <div class="product-card" data-category="minyak">
+                <img src="assets/images/products/minyak.jpg" alt="Minyak Goreng"
+                     onerror="this.src='https://via.placeholder.com/300x200?text=Minyak+Goreng'">
+                <h3>Minyak Goreng</h3>
+                <p class="price">Rp 18.000 / liter</p>
+                <button class="add-to-cart" data-product="Minyak Goreng" data-price="18000">
+                    + Keranjang
+                </button>
+            </div>
+            
+            <!-- Tambahkan produk lainnya... -->
         </div>
-
-        <!-- KERANJANG MINIMALIS (muncul saat ada item) -->
-        <div id="cartSidebar" class="cart-sidebar">
-            <h3>🛒 Keranjang (<span id="cartCount">0</span>)</h3>
-            <div id="cartItems">
-                <!-- Item muncul di sini via JS -->
+        
+        <!-- KERANJANG SIDEBAR -->
+        <div id="cart-sidebar" class="cart-sidebar">
+            <h3>🛒 Keranjang Belanja</h3>
+            <div id="cart-items">
+                <p class="empty-cart">Keranjang masih kosong</p>
             </div>
-            <p>Total: Rp <span id="cartTotal">0</span></p>
-            <button onclick="clearCart()">Hapus Semua</button>
-            <button onclick="checkout()">Checkout via WhatsApp</button>
+            <div class="cart-total">
+                <p>Total: <span id="cart-total-price">Rp 0</span></p>
+            </div>
+            <button id="checkout-btn" class="checkout-btn" disabled>
+                Checkout via WhatsApp
+            </button>
+            <button id="clear-cart" class="clear-btn">
+                Hapus Semua
+            </button>
         </div>
     </main>
 
-    <!-- Footer sama -->
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <p>&copy; 2023 A-Mart Katapang. All rights reserved.</p>
+        <p>📞 (022) 87654321 | 📍 Jl. Katapang Indah No. 123</p>
+    </footer>
 
+    <!-- JAVASCRIPT -->
+    <script src="js/datetime.js"></script>
     <script src="js/cart.js"></script>
+    <script>
+        // Simple cart functionality untuk testing
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Catalog page loaded');
+            
+            // Update waktu
+            function updateTime() {
+                const now = new Date();
+                document.getElementById('liveTime').textContent = 
+                    now.toLocaleDateString('id-ID', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+            }
+            updateTime();
+            setInterval(updateTime, 60000);
+            
+            // Cart sederhana
+            let cart = [];
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total-price');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const clearBtn = document.getElementById('clear-cart');
+            
+            // Add to cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const product = this.getAttribute('data-product');
+                    const price = parseInt(this.getAttribute('data-price'));
+                    
+                    cart.push({ product, price });
+                    updateCartDisplay();
+                    
+                    // Feedback visual
+                    this.textContent = '✓ Ditambahkan';
+                    this.style.background = '#2a9d8f';
+                    setTimeout(() => {
+                        this.textContent = '+ Keranjang';
+                        this.style.background = '';
+                    }, 1000);
+                });
+            });
+            
+            function updateCartDisplay() {
+                // Update cart items
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<p class="empty-cart">Keranjang masih kosong</p>';
+                } else {
+                    let html = '';
+                    let total = 0;
+                    
+                    cart.forEach((item, index) => {
+                        total += item.price;
+                        html += `
+                            <div class="cart-item">
+                                <span>${item.product}</span>
+                                <span>Rp ${item.price.toLocaleString()}</span>
+                                <button onclick="removeCartItem(${index})">×</button>
+                            </div>
+                        `;
+                    });
+                    
+                    cartItems.innerHTML = html;
+                    cartTotal.textContent = 'Rp ' + total.toLocaleString();
+                }
+                
+                // Toggle checkout button
+                checkoutBtn.disabled = cart.length === 0;
+            }
+            
+            // Clear cart
+            clearBtn.addEventListener('click', function() {
+                if (confirm('Hapus semua item dari keranjang?')) {
+                    cart = [];
+                    updateCartDisplay();
+                }
+            });
+            
+            // Checkout via WhatsApp
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length === 0) return;
+                
+                let message = "Halo A-Mart Katapang, saya ingin order:\n\n";
+                let total = 0;
+                
+                cart.forEach(item => {
+                    message += `• ${item.product} - Rp ${item.price.toLocaleString()}\n`;
+                    total += item.price;
+                });
+                
+                message += `\nTotal: Rp ${total.toLocaleString()}\n`;
+                message += `Nama: \nAlamat: \nNo. HP: `;
+                
+                const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            });
+            
+            // Global function untuk remove item
+            window.removeCartItem = function(index) {
+                cart.splice(index, 1);
+                updateCartDisplay();
+            };
+            
+            // Filter products
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Filter products
+                    const filter = this.getAttribute('data-filter');
+                    document.querySelectorAll('.product-card').forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    
+    <style>
+        /* Additional CSS untuk catalog */
+        .catalog-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .page-title {
+            color: #2a9d8f;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid #2a9d8f;
+            background: white;
+            color: #2a9d8f;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #2a9d8f;
+            color: white;
+        }
+        
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .product-card h3 {
+            margin: 0.5rem 0;
+            color: #333;
+        }
+        
+        .product-card .price {
+            color: #e76f51;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .product-card .unit {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+        
+        .add-to-cart {
+            background: #2a9d8f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background: #21867a;
+        }
+        
+        .cart-sidebar {
+            position: fixed;
+            top: 150px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item button {
+            background: #e76f51;
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .checkout-btn {
+            background: #2a9d8f;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        
+        .checkout-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .clear-btn {
+            background: #e76f51;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .cart-sidebar {
+                position: relative;
+                width: 100%;
+                top: auto;
+                right: auto;
+                margin-top: 2rem;
+            }
+            
+            .catalog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </body>
 </html>
