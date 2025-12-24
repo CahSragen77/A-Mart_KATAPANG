@@ -1,3 +1,44 @@
+// DEBUG: Cek apakah link berfungsi
+console.log("Website Toko Sembako Loaded");
+
+// Cek semua link
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a');
+    console.log(`Found ${links.length} links on page`);
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            console.log(`Link clicked: ${this.href}`);
+        });
+    });
+    
+    // Test link functionality
+    const testLinks = () => {
+        const testUrls = [
+            'about.html',
+            'products.html', 
+            'contact.html'
+        ];
+        
+        testUrls.forEach(url => {
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        console.log(`✅ ${url} exists and accessible`);
+                    } else {
+                        console.log(`❌ ${url} not found (${response.status})`);
+                    }
+                })
+                .catch(error => {
+                    console.log(`❌ ${url} error: ${error.message}`);
+                });
+        });
+    };
+    
+    // Run test after 2 seconds
+    setTimeout(testLinks, 2000);
+});
+
 // script.js - Untuk Toko Sembako
 
 // Update Waktu
