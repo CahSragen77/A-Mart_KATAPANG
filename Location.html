@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Meta tag sama seperti halaman 1 -->
+    <title>A-Mart Katapang - Lokasi</title>
+</head>
+<body>
+    <!-- Header & Nav sama seperti index.html -->
+
+    <main>
+        <!-- 3 KOLOM IKLAN -->
+        <section class="ad-top">
+            <div class="ad-box"><p>Iklan Video/Image 1</p></div>
+            <div class="ad-box"><p>Iklan Video/Image 2</p></div>
+            <div class="ad-box"><p>Iklan Video/Image 3</p></div>
+        </section>
+
+        <!-- GOOGLE MAPS -->
+        <section class="maps-section">
+            <h2>Lokasi A-Mart Katapang</h2>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.123456789012!2d107.56789012345678!3d-6.987654321012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTknMTUuNiJTIDEwN8KwMzQnMDguNiJF!5e0!3m2!1sid!2sid!4v1234567890123!5m2!1sid!2sid" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+            <p><strong>Koordinat:</strong> -6.987654, 107.567890</p>
+            <button onclick="openInGoogleMaps()">Buka di Google Maps</button>
+        </section>
+    </main>
+
+    <!-- Footer sama seperti index.html -->
+
+    <script>
+        function openInGoogleMaps() {
+            window.open("https://maps.google.com/?q=-6.987654,107.567890");
+        }
+    </script>
+</body>
+</html>
