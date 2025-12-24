@@ -10,6 +10,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<!-- Search Section -->
+<section class="search-section">
+    <div class="search-bar">
+        <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" id="productSearch" placeholder="Cari produk berdasarkan nama, kategori...">
+            <button id="clearSearch" class="clear-search-btn" style="display: none;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-filters">
+            <span>Cari dalam:</span>
+            <label>
+                <input type="checkbox" id="searchInName" checked> Nama Produk
+            </label>
+            <label>
+                <input type="checkbox" id="searchInDesc"> Deskripsi
+            </label>
+            <label>
+                <input type="checkbox" id="searchInCategory"> Kategori
+            </label>
+        </div>
+        
+        <!-- Advanced Search -->
+        <div class="advanced-search">
+            <div class="advanced-search-header">
+                <h4><i class="fas fa-chevron-down"></i> Pencarian Lanjutan</h4>
+            </div>
+            <div class="advanced-search-content">
+                <div class="price-range-filter">
+                    <div class="price-input">
+                        <label for="minPrice">Harga Minimal (Rp)</label>
+                        <input type="number" id="minPrice" min="0" placeholder="0">
+                    </div>
+                    <div class="price-input">
+                        <label for="maxPrice">Harga Maksimal (Rp)</label>
+                        <input type="number" id="maxPrice" placeholder="500000">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Suggestions -->
+        <div class="search-suggestions" id="searchSuggestions"></div>
+    </div>
+    
+    <!-- Recent Searches -->
+    <div class="recent-searches"></div>
+</section>
+   
     <header class="header">
         <div class="container">
             <div class="logo">
