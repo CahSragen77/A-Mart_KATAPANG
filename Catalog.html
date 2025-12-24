@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Meta tag sama -->
+    <title>A-Mart Katapang - Katalog</title>
+</head>
+<body>
+    <!-- Header & Nav sama -->
+
+    <main class="catalog-page">
+        <h2>Katalog Produk</h2>
+        <div class="filter">
+            <button class="filter-btn active" data-category="all">Semua</button>
+            <button class="filter-btn" data-category="pcs">Per Pcs</button>
+            <button class="filter-btn" data-category="kilo">Per Kilo</button>
+        </div>
+
+        <div class="catalog-grid">
+            <!-- Contoh 1 produk -->
+            <div class="catalog-item" data-price-pcs="5000" data-price-kilo="28000" data-category="pcs kilo">
+                <img src="assets/products/telur.jpg" alt="Telur Ayam" onclick="addToCart('Telur Ayam', 5000, 'pcs')">
+                <h4>Telur Ayam</h4>
+                <p class="price">Rp 5.000 / pcs</p>
+                <p class="price-kilo">Rp 28.000 / kg</p>
+                <button onclick="addToCart('Telur Ayam', 5000, 'pcs')">+ Keranjang</button>
+            </div>
+            <!-- Produk lainnya -->
+        </div>
+
+        <!-- KERANJANG MINIMALIS (muncul saat ada item) -->
+        <div id="cartSidebar" class="cart-sidebar">
+            <h3>🛒 Keranjang (<span id="cartCount">0</span>)</h3>
+            <div id="cartItems">
+                <!-- Item muncul di sini via JS -->
+            </div>
+            <p>Total: Rp <span id="cartTotal">0</span></p>
+            <button onclick="clearCart()">Hapus Semua</button>
+            <button onclick="checkout()">Checkout via WhatsApp</button>
+        </div>
+    </main>
+
+    <!-- Footer sama -->
+
+    <script src="js/cart.js"></script>
+</body>
+</html>
