@@ -1,8 +1,76 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- Meta tag seperti di atas -->
-</head>
+    <!-- ============================
+        1. META TAG CHARSET & VIEWPORT
+        (WAJIB - HARUS PALING ATAS)
+        ============================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ============================
+        2. META TAG DESKRIPSI & KEYWORDS
+        (PENTING UNTUK SEO)
+        ============================ -->
+    <meta name="description" content="A-Mart Katapang - Mini Market lengkap dengan harga terjangkau, produk segar, dan pelayanan terbaik di daerah Katapang. Menyediakan sembako, daging, buah, dan kebutuhan sehari-hari.">
+    
+    <meta name="keywords" content="mini market, sembako, beras, minyak goreng, telur, daging ayam, buah, kebutuhan sehari-hari, Katapang, Bandung, belanja hemat">
+    
+    <meta name="author" content="A-Mart Katapang">
+    <meta name="robots" content="index, follow">
+    
+    <!-- ============================
+        3. OPEN GRAPH META TAG
+        (UNTUK TAMPILAN BAGUS DI SOSIAL MEDIA)
+        ============================ -->
+    <meta property="og:title" content="A-Mart Katapang - Mini Market Terlengkap">
+    <meta property="og:description" content="Belanja kebutuhan sehari-hari jadi lebih mudah dan hemat dengan produk segar berkualitas.">
+    <meta property="og:image" content="https://amart-katapang.com/assets/images/logo-og.png">
+    <meta property="og:url" content="https://amart-katapang.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+    
+    <!-- ============================
+        4. TWITTER CARD META TAG
+        (UNTUK TAMPILAN BAGUS DI TWITTER/X)
+        ============================ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A-Mart Katapang">
+    <meta name="twitter:description" content="Mini Market dengan harga terjangkau di Katapang">
+    <meta name="twitter:image" content="https://amart-katapang.com/assets/images/logo-twitter.png">
+    
+    <!-- ============================
+        5. META TAG LAINNYA
+        ============================ -->
+    <meta name="theme-color" content="#2a9d8f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- ============================
+        6. TITLE TAG
+        (SETELAH META TAG)
+        ============================ -->
+    <title>A-Mart Katapang - Mini Market Terlengkap & Terjangkau</title>
+    
+    <!-- ============================
+        7. LINK KE CSS & FAVICON
+        (SETELAH TITLE)
+        ============================ -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/elegant-colors.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    
+    <!-- ============================
+        8. PRELOAD RESOURCE PENTING
+        (OPTIONAL - UNTUK PERFORMANCE)
+        ============================ -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+</head> <!-- ✅ INI TUTUP HEAD YANG BENAR -->
+
 <body>
     <!-- HEADER -->
     <header class="main-header">
@@ -43,7 +111,8 @@
         <aside class="sidebar">
             <div class="guestbook">
                 <h3>Buku Tamu Digital</h3>
-                <form action="php/guestbook.php" method="POST">
+                <!-- UBAH ACTION FORM UNTUK GITHUB PAGES -->
+                <form id="guestbookForm">
                     <input type="text" name="nama" placeholder="Nama Lengkap" required>
                     <input type="tel" name="phone" placeholder="Nomor WhatsApp" required>
                     <input type="email" name="email" placeholder="Email Aktif">
@@ -76,12 +145,19 @@
             <div class="product-grid">
                 <!-- Baris 1 -->
                 <div class="product-item">
-                    <img src="assets/images/beras.jpg" alt="Beras">
+                    <img src="assets/images/beras.jpg" alt="Beras" 
+                         onerror="this.src='https://via.placeholder.com/300x200?text=Beras+Premium'">
                     <h4>Beras Premium</h4>
                     <p>Rp 12.500 / kg</p>
                 </div>
-                <!-- 4 produk lainnya di baris 1 -->
-                <!-- Total 20 produk (4 baris x 5 kolom) -->
+                <!-- Tambahkan produk lainnya di sini -->
+                <div class="product-item">
+                    <img src="assets/images/minyak.jpg" alt="Minyak Goreng"
+                         onerror="this.src='https://via.placeholder.com/300x200?text=Minyak+Goreng'">
+                    <h4>Minyak Goreng</h4>
+                    <p>Rp 18.000 / liter</p>
+                </div>
+                <!-- Tambah 18 produk lagi -->
             </div>
         </section>
     </div>
@@ -102,12 +178,60 @@
             <a href="#"><img src="assets/icons/instagram.png" alt="Instagram"></a>
             <a href="#"><img src="assets/icons/tiktok.png" alt="TikTok"></a>
             <a href="#"><img src="assets/icons/shopee.png" alt="Shopee"></a>
-            <a href="https://wa.me/6281234567890"><img src="assets/icons/whatsapp.png" alt="WhatsApp"></a>
+            <a href="https://wa.me/628389188903"><img src="assets/icons/whatsapp.png" alt="WhatsApp"></a>
             <a href="#"><img src="assets/icons/telegram.png" alt="Telegram"></a>
         </div>
         <p class="copyright">&copy; 2023 A-Mart Katapang. All rights reserved.</p>
     </footer>
 
+    <!-- ✅ TAMBAHKAN SEMUA SCRIPT DI SINI -->
     <script src="js/datetime.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Script untuk form guestbook (karena PHP tidak jalan di GitHub Pages) -->
+    <script>
+        // Tangani form guestbook
+        document.getElementById('guestbookForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil data form
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simpan ke localStorage (alternatif karena tidak ada server)
+            const submissions = JSON.parse(localStorage.getItem('guestbook') || '[]');
+            submissions.push({
+                ...data,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('guestbook', JSON.stringify(submissions));
+            
+            // Tampilkan konfirmasi
+            alert('Terima kasih! Data Anda telah direkam. Kupon akan dikirim via WhatsApp.');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Update waktu live
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('liveTime').textContent = 
+                now.toLocaleDateString('id-ID', options);
+        }
+        
+        // Jalankan pertama kali dan setiap detik
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
 </body>
 </html>
