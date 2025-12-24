@@ -1,237 +1,220 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- ============================
-        1. META TAG CHARSET & VIEWPORT
-        (WAJIB - HARUS PALING ATAS)
-        ============================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- ============================
-        2. META TAG DESKRIPSI & KEYWORDS
-        (PENTING UNTUK SEO)
-        ============================ -->
-    <meta name="description" content="A-Mart Katapang - Mini Market lengkap dengan harga terjangkau, produk segar, dan pelayanan terbaik di daerah Katapang. Menyediakan sembako, daging, buah, dan kebutuhan sehari-hari.">
-    
+    <meta name="description" content="A-Mart Katapang - Mini Market lengkap dengan harga terjangkau, produk segar, dan pelayanan terbaik di daerah Katapang.">
     <meta name="keywords" content="mini market, sembako, beras, minyak goreng, telur, daging ayam, buah, kebutuhan sehari-hari, Katapang, Bandung, belanja hemat">
-    
     <meta name="author" content="A-Mart Katapang">
     <meta name="robots" content="index, follow">
     
-    <!-- ============================
-        3. OPEN GRAPH META TAG
-        (UNTUK TAMPILAN BAGUS DI SOSIAL MEDIA)
-        ============================ -->
+    <!-- Open Graph -->
     <meta property="og:title" content="A-Mart Katapang - Mini Market Terlengkap">
     <meta property="og:description" content="Belanja kebutuhan sehari-hari jadi lebih mudah dan hemat dengan produk segar berkualitas.">
-    <meta property="og:image" content="https://amart-katapang.com/assets/images/logo-og.png">
+    <meta property="og:image" content="assets/images/logo-og.png">
     <meta property="og:url" content="https://amart-katapang.com">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="id_ID">
     
-    <!-- ============================
-        4. TWITTER CARD META TAG
-        (UNTUK TAMPILAN BAGUS DI TWITTER/X)
-        ============================ -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="A-Mart Katapang">
     <meta name="twitter:description" content="Mini Market dengan harga terjangkau di Katapang">
-    <meta name="twitter:image" content="https://amart-katapang.com/assets/images/logo-twitter.png">
+    <meta name="twitter:image" content="assets/images/logo-twitter.png">
     
-    <!-- ============================
-        5. META TAG LAINNYA
-        ============================ -->
+    <!-- Other Meta -->
     <meta name="theme-color" content="#2a9d8f">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <!-- ============================
-        6. TITLE TAG
-        (SETELAH META TAG)
-        ============================ -->
     <title>A-Mart Katapang - Mini Market Terlengkap & Terjangkau</title>
     
-    <!-- ============================
-        7. LINK KE CSS & FAVICON
-        (SETELAH TITLE)
-        ============================ -->
+    <!-- CSS Files -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/elegant-colors.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     
-    <!-- ============================
-        8. PRELOAD RESOURCE PENTING
-        (OPTIONAL - UNTUK PERFORMANCE)
-        ============================ -->
-    <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="js/main.js" as="script">
-</head> <!-- ✅ INI TUTUP HEAD YANG BENAR -->
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Load JavaScript -->
+    <script src="js/main.js" defer></script>
+    <script src="js/google-sheets.js" defer></script>
+</head>
 
 <body>
     <!-- HEADER -->
     <header class="main-header">
         <div class="logo">
-            <img src="assets/images/logo.png" alt="A-Mart Katapang Logo">
+            <img src="assets/images/logo.png" alt="A-Mart Katapang Logo" onerror="this.src='https://via.placeholder.com/150x60?text=A-Mart+Logo'">
         </div>
         <div class="title">
             <h1>A-Mart Katapang</h1>
-            <p>Segar, Lengkap, Terjangkau</p>
+            <p class="tagline">Segar, Lengkap, Terjangkau</p>
         </div>
         <div class="live-time" id="liveTime">
-            <!-- Waktu akan diisi oleh JS -->
+            <!-- Diisi oleh JavaScript -->
         </div>
     </header>
 
     <!-- NAVIGASI -->
     <nav class="main-nav">
-        <ul>
-            <li><a href="index.html" class="active">Beranda</a></li>
-            <li><a href="location.html">Lokasi</a></li>
-            <li><a href="catalog.html">Katalog & Belanja</a></li>
-            <li><a href="feedback.html">Saran & Donasi</a></li>
-        </ul>
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="location.html"><i class="fas fa-map-marker-alt"></i> Lokasi</a></li>
+                <li><a href="catalog.html"><i class="fas fa-shopping-basket"></i> Katalog & Belanja</a></li>
+                <li><a href="feedback.html"><i class="fas fa-comment-dots"></i> Saran & Donasi</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- BANNER TELUR -->
+    <!-- BANNER PROMO -->
     <section class="banner">
-        <img src="assets/images/banner-telur.jpg" alt="Promo Telur">
-        <div class="banner-text">
-            <h2>TELUR AYAM SEGAR</h2>
-            <p class="price">Rp 28.000 / kg</p>
-            <p class="desc">Langsung dari peternak, garansi fresh!</p>
+        <div class="banner-content">
+            <img src="assets/images/banner-telur.jpg" alt="Promo Telur" 
+                 onerror="this.src='https://images.unsplash.com/photo-1589923186741-b7d59d6b2c4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
+            <div class="banner-overlay">
+                <h2>🎯 PROMO KHUSUS! TELUR AYAM SEGAR</h2>
+                <p class="price">Rp 28.000 / kg</p>
+                <p class="desc">Langsung dari peternak lokal • Garansi fresh 100%</p>
+                <button class="btn-promo">BELI SEKARANG</button>
+            </div>
         </div>
     </section>
 
-    <div class="container">
+    <!-- MAIN CONTENT -->
+    <main class="container">
         <!-- SIDEBAR BUKU TAMU -->
         <aside class="sidebar">
-            <div class="guestbook">
-                <h3>Buku Tamu Digital</h3>
-                <!-- UBAH ACTION FORM UNTUK GITHUB PAGES -->
+            <div class="guestbook-card">
+                <div class="guestbook-header">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Buku Tamu Digital</h3>
+                    <p>Dapatkan kupon diskon 10%!</p>
+                </div>
+                
                 <form id="guestbookForm">
-                    <input type="text" name="nama" placeholder="Nama Lengkap" required>
-                    <input type="tel" name="phone" placeholder="Nomor WhatsApp" required>
-                    <input type="email" name="email" placeholder="Email Aktif">
-                    <textarea name="alamat" placeholder="Alamat lengkap"></textarea>
-                    <select name="info_tambahan">
-                        <option value="">Darimana tahu A-Mart?</option>
-                        <option value="google">Google</option>
-                        <option value="sosmed">Sosial Media</option>
-                        <option value="teman">Rekomendasi Teman</option>
-                        <option value="lewat">Lewat Depan Toko</option>
-                    </select>
-                    <button type="submit">Kirim & Dapat Kupon!</button>
+                    <div class="form-group">
+                        <label for="nama"><i class="fas fa-user"></i> Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="whatsapp"><i class="fab fa-whatsapp"></i> Nomor WhatsApp</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="0812-3456-7890" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Aktif</label>
+                        <input type="email" id="email" name="email" placeholder="email@contoh.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="alamat"><i class="fas fa-map-marked-alt"></i> Alamat Lengkap</label>
+                        <textarea id="alamat" name="alamat" placeholder="Jl. Contoh No. 123, Kecamatan, Kota" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="info"><i class="fas fa-info-circle"></i> Dari mana tahu A-Mart?</label>
+                        <select id="info" name="info_tambahan">
+                            <option value="">Pilih sumber informasi</option>
+                            <option value="google">Google / Internet</option>
+                            <option value="sosmed">Sosial Media (FB/IG/Tiktok)</option>
+                            <option value="teman">Rekomendasi Teman/Keluarga</option>
+                            <option value="lewat">Lewat Depan Toko</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Kirim & Dapat Kupon!
+                        </button>
+                    </div>
+                    
+                    <div class="form-info">
+                        <p><i class="fas fa-shield-alt"></i> Data Anda aman dan tidak akan disalahgunakan</p>
+                    </div>
                 </form>
+                
+                <div id="formMessage" class="form-message"></div>
             </div>
         </aside>
 
-        <!-- KOLOM IKLAN KOSONG (2 kolom) -->
-        <section class="ad-section">
-            <div class="ad-col">
-                <p class="ad-placeholder">Iklan Promo Minggu Ini<br>(Banner 1)</p>
+        <!-- KONTEN UTAMA -->
+        <section class="main-content">
+            <!-- IKLAN PROMO -->
+            <div class="ad-section">
+                <div class="ad-col promo-1">
+                    <h4><i class="fas fa-fire"></i> PROMO MINGGU INI</h4>
+                    <p>Diskon 20% untuk pembelian pertama!</p>
+                    <button class="btn-ad">LIHAT PROMO</button>
+                </div>
+                <div class="ad-col promo-2">
+                    <h4><i class="fas fa-truck"></i> GRATIS ONGKIR</h4>
+                    <p>Min. pembelian Rp 100.000 (area Katapang)</p>
+                    <button class="btn-ad">PESAN SEKARANG</button>
+                </div>
             </div>
-            <div class="ad-col">
-                <p class="ad-placeholder">Iklan Promo Minggu Ini<br>(Banner 2)</p>
-            </div>
-        </section>
 
-        <!-- PRODUK FAST MOVING -->
-        <section class="fast-moving">
-            <h2>PRODUK SEMBAKO CEPAT LAKU</h2>
-            <div class="product-grid">
-                <!-- Baris 1 -->
-                <div class="product-item">
-                    <img src="assets/images/beras.jpg" alt="Beras" 
-                         onerror="this.src='https://via.placeholder.com/300x200?text=Beras+Premium'">
-                    <h4>Beras Premium</h4>
-                    <p>Rp 12.500 / kg</p>
+            <!-- PRODUK TERLARIS -->
+            <section class="product-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i> PRODUK SEMBAKO CEPAT LAKU</h2>
+                    <p>Produk terfavorit pelanggan kami</p>
                 </div>
-                <!-- Tambahkan produk lainnya di sini -->
-                <div class="product-item">
-                    <img src="assets/images/minyak.jpg" alt="Minyak Goreng"
-                         onerror="this.src='https://via.placeholder.com/300x200?text=Minyak+Goreng'">
-                    <h4>Minyak Goreng</h4>
-                    <p>Rp 18.000 / liter</p>
+                
+                <div class="product-grid" id="productGrid">
+                    <!-- Produk akan di-load via JavaScript -->
                 </div>
-                <!-- Tambah 18 produk lagi -->
-            </div>
+            </section>
         </section>
-    </div>
+    </main>
 
     <!-- FOOTER -->
     <footer class="main-footer">
-        <div class="footer-info">
-            <h4>A-Mart Katapang</h4>
-            <p>Jl. Katapang Indah No. 123, Katapang, Bandung</p>
-            <p>📞 (022) 87654321 / WhatsApp: 0812-3456-7890</p>
-            <p>✉️ amart.katapang@email.com</p>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4><i class="fas fa-store"></i> A-Mart Katapang</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Katapang Indah No. 123, Katapang, Bandung</p>
+                <p><i class="fas fa-phone"></i> (022) 87654321</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: 0812-3456-7890</p>
+                <p><i class="fas fa-envelope"></i> amart.katapang@email.com</p>
+            </div>
+            
+            <div class="social-media">
+                <h4>Ikuti Kami</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon tiktok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/6281234567890" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon shopee"><i class="fas fa-shopping-bag"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                    <li><a href="location.html"><i class="fas fa-chevron-right"></i> Lokasi & Jam Buka</a></li>
+                    <li><a href="catalog.html"><i class="fas fa-chevron-right"></i> Katalog Produk</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-chevron-right"></i> Hubungi Kami</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="social-media">
-            <a href="#"><img src="assets/icons/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="assets/icons/youtube.png" alt="YouTube"></a>
-            <a href="#"><img src="assets/icons/twitter.png" alt="X/Twitter"></a>
-            <a href="#"><img src="assets/icons/threads.png" alt="Threads"></a>
-            <a href="#"><img src="assets/icons/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="assets/icons/tiktok.png" alt="TikTok"></a>
-            <a href="#"><img src="assets/icons/shopee.png" alt="Shopee"></a>
-            <a href="https://wa.me/628389188903"><img src="assets/icons/whatsapp.png" alt="WhatsApp"></a>
-            <a href="#"><img src="assets/icons/telegram.png" alt="Telegram"></a>
+        
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2023 A-Mart Katapang. Semua hak dilindungi.</p>
+            <p>Dibuat dengan <i class="fas fa-heart" style="color: #e76f51;"></i> untuk masyarakat Katapang</p>
         </div>
-        <p class="copyright">&copy; 2023 A-Mart Katapang. All rights reserved.</p>
     </footer>
 
-    <!-- ✅ TAMBAHKAN SEMUA SCRIPT DI SINI -->
-    <script src="js/datetime.js"></script>
-    <script src="js/main.js"></script>
-    
-    <!-- Script untuk form guestbook (karena PHP tidak jalan di GitHub Pages) -->
+    <!-- JavaScript -->
     <script>
-        // Tangani form guestbook
-        document.getElementById('guestbookForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Ambil data form
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simpan ke localStorage (alternatif karena tidak ada server)
-            const submissions = JSON.parse(localStorage.getItem('guestbook') || '[]');
-            submissions.push({
-                ...data,
-                timestamp: new Date().toISOString()
-            });
-            localStorage.setItem('guestbook', JSON.stringify(submissions));
-            
-            // Tampilkan konfirmasi
-            alert('Terima kasih! Data Anda telah direkam. Kupon akan dikirim via WhatsApp.');
-            
-            // Reset form
-            this.reset();
+        // Inisialisasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('A-Mart Katapang website loaded successfully!');
         });
-        
-        // Update waktu live
-        function updateTime() {
-            const now = new Date();
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            };
-            document.getElementById('liveTime').textContent = 
-                now.toLocaleDateString('id-ID', options);
-        }
-        
-        // Jalankan pertama kali dan setiap detik
-        updateTime();
-        setInterval(updateTime, 1000);
     </script>
 </body>
 </html>
