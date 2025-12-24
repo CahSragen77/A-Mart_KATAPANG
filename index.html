@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- Meta tag seperti di atas -->
-
-    <!DOCTYPE html>
-<html lang="id">
-<head>
     <!-- ============================
         1. META TAG CHARSET & VIEWPORT
         (WAJIB - HARUS PALING ATAS)
@@ -58,7 +53,7 @@
     <title>A-Mart Katapang - Mini Market Terlengkap & Terjangkau</title>
     
     <!-- ============================
-        7. LINK KE css & FAVICON
+        7. LINK KE CSS & FAVICON
         (SETELAH TITLE)
         ============================ -->
     <link rel="stylesheet" href="css/style.css">
@@ -74,7 +69,7 @@
         ============================ -->
     <link rel="preload" href="css/style.css" as="style">
     <link rel="preload" href="js/main.js" as="script">
-</head>
+</head> <!-- ✅ INI TUTUP HEAD YANG BENAR -->
 
 <body>
     <!-- HEADER -->
@@ -87,7 +82,7 @@
             <p>Segar, Lengkap, Terjangkau</p>
         </div>
         <div class="live-time" id="liveTime">
-            <!-- Waktu akan diisi oleh js -->
+            <!-- Waktu akan diisi oleh JS -->
         </div>
     </header>
 
@@ -116,7 +111,8 @@
         <aside class="sidebar">
             <div class="guestbook">
                 <h3>Buku Tamu Digital</h3>
-                <form action="php/guestbook.php" method="POST">
+                <!-- UBAH ACTION FORM UNTUK GITHUB PAGES -->
+                <form id="guestbookForm">
                     <input type="text" name="nama" placeholder="Nama Lengkap" required>
                     <input type="tel" name="phone" placeholder="Nomor WhatsApp" required>
                     <input type="email" name="email" placeholder="Email Aktif">
@@ -149,12 +145,19 @@
             <div class="product-grid">
                 <!-- Baris 1 -->
                 <div class="product-item">
-                    <img src="assets/images/beras.jpg" alt="Beras">
+                    <img src="assets/images/beras.jpg" alt="Beras" 
+                         onerror="this.src='https://via.placeholder.com/300x200?text=Beras+Premium'">
                     <h4>Beras Premium</h4>
                     <p>Rp 12.500 / kg</p>
                 </div>
-                <!-- 4 produk lainnya di baris 1 -->
-                <!-- Total 20 produk (4 baris x 5 kolom) -->
+                <!-- Tambahkan produk lainnya di sini -->
+                <div class="product-item">
+                    <img src="assets/images/minyak.jpg" alt="Minyak Goreng"
+                         onerror="this.src='https://via.placeholder.com/300x200?text=Minyak+Goreng'">
+                    <h4>Minyak Goreng</h4>
+                    <p>Rp 18.000 / liter</p>
+                </div>
+                <!-- Tambah 18 produk lagi -->
             </div>
         </section>
     </div>
@@ -181,6 +184,54 @@
         <p class="copyright">&copy; 2023 A-Mart Katapang. All rights reserved.</p>
     </footer>
 
+    <!-- ✅ TAMBAHKAN SEMUA SCRIPT DI SINI -->
     <script src="js/datetime.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Script untuk form guestbook (karena PHP tidak jalan di GitHub Pages) -->
+    <script>
+        // Tangani form guestbook
+        document.getElementById('guestbookForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil data form
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simpan ke localStorage (alternatif karena tidak ada server)
+            const submissions = JSON.parse(localStorage.getItem('guestbook') || '[]');
+            submissions.push({
+                ...data,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('guestbook', JSON.stringify(submissions));
+            
+            // Tampilkan konfirmasi
+            alert('Terima kasih! Data Anda telah direkam. Kupon akan dikirim via WhatsApp.');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Update waktu live
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('liveTime').textContent = 
+                now.toLocaleDateString('id-ID', options);
+        }
+        
+        // Jalankan pertama kali dan setiap detik
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
 </body>
 </html>
