@@ -1,47 +1,32 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Produk - A-Mart KATAPANG</title>
+    <title>Produk - Toko Sembako</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/mobile.css" media="screen and (max-width: 768px)">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Header -->
-    <header class="main-header">
-        <div class="container header-container">
+    <header class="header">
+        <div class="container">
             <div class="logo">
-                <img src="images/logo.png" alt="Logo A-Mart KATAPANG" class="logo-img">
+                <img src="assets/images/logo.png" alt="Logo" class="logo-img">
             </div>
-
             <div class="judul">
-                <h1>KATALOG PRODUK</h1>
-                <p class="tagline">Pilih produk favorit Anda</p>
+                <h1>PRODUK KAMI</h1>
+                <p class="tagline">Pilih produk berkualitas</p>
             </div>
-
             <div class="time-display">
-                <div class="date" id="current-date"></div>
-                <div class="time" id="current-time"></div>
-            </div>
-
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <div class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cart-count"></span>
+                <div id="current-date"></div>
+                <div id="current-time"></div>
             </div>
         </div>
-
-        <nav class="main-nav">
+        
+        <nav class="navbar">
             <div class="container">
-                <ul class="nav-list" id="navList">
+                <ul class="nav-menu">
                     <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
                     <li><a href="about.html"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
                     <li><a href="products.html" class="active"><i class="fas fa-shopping-basket"></i> Produk</a></li>
@@ -51,130 +36,81 @@
         </nav>
     </header>
 
-    <!-- Shopping Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-modal-content">
-            <div class="cart-modal-header">
-                <h3><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h3>
-                <button class="close-cart" id="closeCart">&times;</button>
-            </div>
-
-            <div class="cart-items" id="cartItems">
-                <!-- Items will be loaded here -->
-                <div class="empty-cart">
-                    <i class="fas fa-shopping-cart fa-3x"></i>
-                    <p>Keranjang belanja Anda kosong</p>
-                </div>
-            </div>
-
-            <div class="cart-summary">
-                <div class="cart-total">
-                    <span>Total:</span>
-                    <span id="cartTotal">Rp 0</span>
-                </div>
-
-                <div class="cart-actions">
-                    <button class="btn-clear" id="clearCart">
-                        <i class="fas fa-trash"></i> Kosongkan
-                    </button>
-                    <button class="btn-checkout" id="checkoutBtn">
-                        <i class="fas fa-check"></i> Checkout
+    <main class="container">
+        <section style="background: white; padding: 30px; border-radius: 10px; margin: 30px 0;">
+            <h2 style="color: #2c3e50; margin-bottom: 30px; text-align: center;"><i class="fas fa-box-open"></i> Semua Produk</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+                <!-- Produk 1 -->
+                <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="background: #e74c3c; color: white; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-bottom: 10px;">DISKON 20%</div>
+                    <h3 style="color: #2c3e50; margin: 10px 0;">Beras Rojolele</h3>
+                    <p style="color: #7f8c8d; font-size: 0.9rem;">Beras premium kualitas terbaik</p>
+                    <p style="color: #e74c3c; font-size: 1.3rem; font-weight: bold; margin: 15px 0;">Rp 12.500/kg</p>
+                    <button style="background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%;">
+                        <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
                     </button>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <main class="container main-content">
-        <!-- Filter Section -->
-        <section class="filter-section">
-            <div class="filter-container">
-                <h2><i class="fas fa-filter"></i> Filter Produk</h2>
-
-                <div class="filter-options">
-                    <div class="filter-group">
-                        <label for="category">Kategori:</label>
-                        <select id="category">
-                            <option value="all">Semua Kategori</option>
-                            <option value="beras">Beras</option>
-                            <option value="minyak">Minyak Goreng</option>
-                            <option value="daging">Daging</option>
-                            <option value="buah">Buah</option>
-                            <option value="bumbu">Bumbu</option>
-                            <option value="sembako">Sembako Lainnya</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label for="sort">Urutkan:</label>
-                        <select id="sort">
-                            <option value="popular">Terpopuler</option>
-                            <option value="newest">Terbaru</option>
-                            <option value="price-low">Harga Terendah</option>
-                            <option value="price-high">Harga Tertinggi</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
-                        <label for="price-range">Rentang Harga:</label>
-                        <input type="range" id="price-range" min="0" max="500000" value="500000">
-                        <div class="price-display">
-                            <span>Rp 0</span>
-                            <span id="maxPriceDisplay">Rp 500.000</span>
-                        </div>
-                    </div>
+                
+                <!-- Produk 2 -->
+                <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h3 style="color: #2c3e50; margin: 10px 0;">Minyak Goreng</h3>
+                    <p style="color: #7f8c8d; font-size: 0.9rem;">Minyak goreng 2L kemasan ekonomis</p>
+                    <p style="color: #e74c3c; font-size: 1.3rem; font-weight: bold; margin: 15px 0;">Rp 32.000/botol</p>
+                    <button style="background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%;">
+                        <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                    </button>
+                </div>
+                
+                <!-- Produk 3 -->
+                <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="background: #2ecc71; color: white; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-bottom: 10px;">TERLARIS</div>
+                    <h3 style="color: #2c3e50; margin: 10px 0;">Telur Ayam Kampung</h3>
+                    <p style="color: #7f8c8d; font-size: 0.9rem;">Telur segar kaya nutrisi</p>
+                    <p style="color: #e74c3c; font-size: 1.3rem; font-weight: bold; margin: 15px 0;">Rp 28.500/kg</p>
+                    <button style="background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%;">
+                        <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                    </button>
+                </div>
+                
+                <!-- Produk 4 -->
+                <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h3 style="color: #2c3e50; margin: 10px 0;">Gula Pasir</h3>
+                    <p style="color: #7f8c8d; font-size: 0.9rem;">Gula pasir putih 1kg</p>
+                    <p style="color: #e74c3c; font-size: 1.3rem; font-weight: bold; margin: 15px 0;">Rp 14.500/kg</p>
+                    <button style="background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%;">
+                        <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                    </button>
                 </div>
             </div>
         </section>
-
-        <!-- Products Catalog -->
-        <section class="catalog-section">
-            <h2><i class="fas fa-boxes"></i> Katalog Produk Lengkap</h2>
-            <p class="section-subtitle">Klik produk untuk menambahkan ke keranjang belanja</p>
-
-            <div class="catalog-grid" id="productsCatalog">
-                <!-- Products will be loaded here dynamically -->
-            </div>
-        </section>
-
-        <!-- Price Type Toggle -->
-        <div class="price-type-toggle">
-            <button class="price-type-btn active" data-type="pcs">Harga per Pcs</button>
-            <button class="price-type-btn" data-type="kilo">Harga per Kilo</button>
-        </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="main-footer">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Toko Sembako Segar</h3>
-                    <p>Menyediakan berbagai kebutuhan pokok dengan harga terjangkau dan kualitas terbaik.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Kontak Kami</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Contoh No. 123, Kota Anda</p>
-                    <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
-                    <p><i class="fas fa-envelope"></i> info@tokosembakosegar.com</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Jam Operasional</h3>
-                    <p>Senin - Jumat: 08:00 - 20:00</p>
-                    <p>Sabtu - Minggu: 08:00 - 18:00</p>
+            <div class="footer-section">
+                <h3><i class="fas fa-map-marker-alt"></i> Alamat</h3>
+                <p>Jl. Raya Sembako No. 123<br>Kota Berkahan, Jawa Barat</p>
+            </div>
+            <div class="footer-section">
+                <h3><i class="fas fa-phone"></i> Kontak</h3>
+                <p>(021) 1234-5678<br>0812-3456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3><i class="fas fa-share-alt"></i> Media Sosial</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Toko Sembako Segar. All rights reserved.</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Toko Sembako Segar Berkah Abadi</p>
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <script src="js/products-data.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/main.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
-
 </html>
