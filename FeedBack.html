@@ -1,4 +1,64 @@
-<!-- Di dalam file feedback.html, bagian form saran -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Meta tag sama -->
+    <title>A-Mart Katapang - Saran & Donasi</title>
+</head>
+<body>
+    <!-- Header & Nav sama -->
+
+    <main class="feedback-page">
+        <section class="feedback-form">
+            <h2>Kotak Saran & Kritik</h2>
+            <form action="php/feedback.php" method="POST">
+                <label>
+                    <input type="radio" name="display_name" value="show" checked> Tampilkan Nama Saya
+                </label>
+                <label>
+                    <input type="radio" name="display_name" value="hide"> Anonim
+                </label>
+                <input type="text" name="nama" placeholder="Nama (jika bukan anonim)">
+                <textarea name="saran" placeholder="Saran/kritik membangun..." required></textarea>
+                <button type="submit">Kirim Saran</button>
+            </form>
+        </section>
+
+        <section class="donation-section">
+            <h2>Donasi Kemanusiaan & Wakaf Al-Qur'an</h2>
+            <p>Bantu saudara kita yang membutuhkan melalui A-Mart Peduli.</p>
+            
+            <div class="donation-method">
+                <h3>Pilih Cara Transfer:</h3>
+                <select id="donationMethod">
+                    <option value="bank">Transfer Bank (BCA: 123-456-7890)</option>
+                    <option value="dana">DANA (0812-3456-7890)</option>
+                    <option value="gopay">GoPay (0812-3456-7890)</option>
+                    <option value="ovo">OVO (0812-3456-7890)</option>
+                    <option value="shopeepay">ShopeePay (0812-3456-7890)</option>
+                </select>
+                
+                <input type="number" id="donationAmount" placeholder="Jumlah Donasi (Rp)">
+                <button onclick="processDonation()">Donasi Sekarang</button>
+            </div>
+            
+            <p class="note">Konfirmasi donasi ke WhatsApp: 0812-3456-7890</p>
+        </section>
+    </main>
+
+    <!-- Footer sama -->
+
+    <script>
+        function processDonation() {
+            let method = document.getElementById('donationMethod').value;
+            let amount = document.getElementById('donationAmount').value;
+            let message = `Halo, saya ingin donasi sebesar Rp ${amount} via ${method}.`;
+            window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(message)}`);
+        }
+    </script>
+
+
+
+    <!-- Di dalam file feedback.html, bagian form saran -->
 <section class="feedback-form">
     <h2>Kotak Saran & Kritik</h2>
     <!-- Perhatikan atribut action dan method -->
@@ -24,3 +84,21 @@
         <button type="submit">Kirim Saran</button>
     </form>
 </section>
+
+
+    <!-- Setelah script lainnya -->
+<script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
