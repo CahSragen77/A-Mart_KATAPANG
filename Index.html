@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Meta tag seperti di atas -->
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="A-Mart Katapang Logo">
+        </div>
+        <div class="title">
+            <h1>A-Mart Katapang</h1>
+            <p>Segar, Lengkap, Terjangkau</p>
+        </div>
+        <div class="live-time" id="liveTime">
+            <!-- Waktu akan diisi oleh JS -->
+        </div>
+    </header>
+
+    <!-- NAVIGASI -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html" class="active">Beranda</a></li>
+            <li><a href="location.html">Lokasi</a></li>
+            <li><a href="catalog.html">Katalog & Belanja</a></li>
+            <li><a href="feedback.html">Saran & Donasi</a></li>
+        </ul>
+    </nav>
+
+    <!-- BANNER TELUR -->
+    <section class="banner">
+        <img src="assets/images/banner-telur.jpg" alt="Promo Telur">
+        <div class="banner-text">
+            <h2>TELUR AYAM SEGAR</h2>
+            <p class="price">Rp 28.000 / kg</p>
+            <p class="desc">Langsung dari peternak, garansi fresh!</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- SIDEBAR BUKU TAMU -->
+        <aside class="sidebar">
+            <div class="guestbook">
+                <h3>Buku Tamu Digital</h3>
+                <form action="php/guestbook.php" method="POST">
+                    <input type="text" name="nama" placeholder="Nama Lengkap" required>
+                    <input type="tel" name="phone" placeholder="Nomor WhatsApp" required>
+                    <input type="email" name="email" placeholder="Email Aktif">
+                    <textarea name="alamat" placeholder="Alamat lengkap"></textarea>
+                    <select name="info_tambahan">
+                        <option value="">Darimana tahu A-Mart?</option>
+                        <option value="google">Google</option>
+                        <option value="sosmed">Sosial Media</option>
+                        <option value="teman">Rekomendasi Teman</option>
+                        <option value="lewat">Lewat Depan Toko</option>
+                    </select>
+                    <button type="submit">Kirim & Dapat Kupon!</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- KOLOM IKLAN KOSONG (2 kolom) -->
+        <section class="ad-section">
+            <div class="ad-col">
+                <p class="ad-placeholder">Iklan Promo Minggu Ini<br>(Banner 1)</p>
+            </div>
+            <div class="ad-col">
+                <p class="ad-placeholder">Iklan Promo Minggu Ini<br>(Banner 2)</p>
+            </div>
+        </section>
+
+        <!-- PRODUK FAST MOVING -->
+        <section class="fast-moving">
+            <h2>PRODUK SEMBAKO CEPAT LAKU</h2>
+            <div class="product-grid">
+                <!-- Baris 1 -->
+                <div class="product-item">
+                    <img src="assets/images/beras.jpg" alt="Beras">
+                    <h4>Beras Premium</h4>
+                    <p>Rp 12.500 / kg</p>
+                </div>
+                <!-- 4 produk lainnya di baris 1 -->
+                <!-- Total 20 produk (4 baris x 5 kolom) -->
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-info">
+            <h4>A-Mart Katapang</h4>
+            <p>Jl. Katapang Indah No. 123, Katapang, Bandung</p>
+            <p>📞 (022) 87654321 / WhatsApp: 0812-3456-7890</p>
+            <p>✉️ amart.katapang@email.com</p>
+        </div>
+        <div class="social-media">
+            <a href="#"><img src="assets/icons/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="assets/icons/youtube.png" alt="YouTube"></a>
+            <a href="#"><img src="assets/icons/twitter.png" alt="X/Twitter"></a>
+            <a href="#"><img src="assets/icons/threads.png" alt="Threads"></a>
+            <a href="#"><img src="assets/icons/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="assets/icons/tiktok.png" alt="TikTok"></a>
+            <a href="#"><img src="assets/icons/shopee.png" alt="Shopee"></a>
+            <a href="https://wa.me/6281234567890"><img src="assets/icons/whatsapp.png" alt="WhatsApp"></a>
+            <a href="#"><img src="assets/icons/telegram.png" alt="Telegram"></a>
+        </div>
+        <p class="copyright">&copy; 2023 A-Mart Katapang. All rights reserved.</p>
+    </footer>
+
+    <script src="js/datetime.js"></script>
+</body>
+</html>
