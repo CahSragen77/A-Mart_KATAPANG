@@ -1,35 +1,161 @@
-/* Mobile-first adjustments */
-@media (max-width: 480px) {
-    .title h1 {
-        font-size: 1.5rem;
+/* MOBILE FIRST - START FROM SMALLEST */
+/* 1. Untuk semua handphone (landscape & portrait) */
+@media (max-width: 767px) {
+    .main-header {
+        flex-direction: column;
+        padding: 0.8rem 1rem;
+        gap: 0.8rem;
     }
     
+    .logo img {
+        height: 50px;
+    }
+    
+    .title h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+    
+    .live-time {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    /* Navigation */
     .main-nav ul {
         flex-direction: column;
-        align-items: center;
+        padding: 0.8rem;
+        gap: 0.5rem;
     }
     
     .main-nav a {
         display: block;
-        width: 90%;
+        width: 100%;
+        margin: 0;
+        padding: 0.8rem;
         text-align: center;
-        margin: 0.3rem 0;
+        border-radius: 8px;
     }
     
-    .product-grid, .catalog-grid {
+    /* Container & Layout */
+    .container {
         grid-template-columns: 1fr;
+        padding: 0 0.8rem;
+        gap: 1.5rem;
     }
     
-    .ad-section {
-        flex-direction: column;
+    /* Banner */
+    .banner {
+        margin: 1rem 0.8rem;
+        border-radius: 10px;
+        aspect-ratio: 16/9; /* Lebih tinggi untuk mobile */
     }
     
+    .banner-text {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        margin-top: -4rem;
+        padding: 1rem;
+        border-radius: 0 0 10px 10px;
+    }
+    
+    .banner-text h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* 2. Handphone ukuran sedang (480px ke bawah) */
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 1.4rem;
+    }
+    
+    .banner {
+        aspect-ratio: 4/3;
+    }
+    
+    .guestbook {
+        padding: 1rem;
+    }
+    
+    .guestbook input,
+    .guestbook textarea,
+    .guestbook select {
+        padding: 0.7rem;
+        font-size: 16px; /* Mencegah zoom di iOS */
+    }
+    
+    /* Product Grid */
+    .product-grid, 
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .product-item,
+    .catalog-item {
+        padding: 1rem;
+    }
+    
+    .product-item img,
+    .catalog-item img {
+        height: 120px;
+    }
+    
+    /* Footer */
     .social-media {
-        gap: 0.5rem;
+        gap: 0.8rem;
+    }
+    
+    .social-media img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* 3. Handphone sangat kecil (360px ke bawah) */
+@media (max-width: 360px) {
+    .title h1 {
+        font-size: 1.2rem;
+    }
+    
+    .main-nav a {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+    
+    .product-item h4,
+    .catalog-item h4 {
+        font-size: 0.9rem;
     }
     
     .social-media img {
         width: 28px;
         height: 28px;
+    }
+}
+
+/* 4. Fix untuk iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    /* CSS khusus untuk iOS */
+    .guestbook input,
+    .guestbook textarea,
+    .guestbook select {
+        font-size: 16px !important;
+    }
+    
+    /* Fix untuk sticky elements */
+    .main-header {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+/* 5. Fix untuk Chrome Android */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .main-nav a {
+        -webkit-tap-highlight-color: transparent;
     }
 }
