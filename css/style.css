@@ -1,18 +1,60 @@
-/* Reset & Global */
+/* 
+ * CSS Lengkap untuk Website E-commerce
+ * Termasuk semua perbaikan dan optimasi
+ */
+
+/* ============================================
+   1. RESET & GLOBAL STYLES
+============================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color: #333;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
-/* HEADER */
+/* ============================================
+   2. ACCESSIBILITY & INTERACTION
+============================================ */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #2a9d8f;
+    outline-offset: 3px;
+}
+
+/* Skip to content for screen readers */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #264653;
+    color: white;
+    padding: 8px;
+    z-index: 9999;
+    text-decoration: none;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* ============================================
+   3. HEADER
+============================================ */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -20,16 +62,27 @@ body {
     padding: 1rem 2rem;
     background: white;
     border-bottom: 3px solid #2a9d8f;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
     height: 60px;
+    width: auto;
+    max-width: 100%;
 }
 
 .title h1 {
     color: #2a9d8f;
-    font-size: 2.2rem;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    text-align: center;
 }
 
 .live-time {
@@ -38,15 +91,26 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     font-weight: bold;
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
-/* NAV */
+/* ============================================
+   4. NAVIGATION
+============================================ */
+.main-nav {
+    background: #264653;
+    position: sticky;
+    top: 88px; /* Height of header */
+    z-index: 999;
+}
+
 .main-nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    background: #264653;
     padding: 1rem;
+    margin: 0;
 }
 
 .main-nav a {
@@ -55,39 +119,56 @@ body {
     padding: 0.5rem 1.5rem;
     margin: 0 0.5rem;
     border-radius: 20px;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: inline-block;
 }
 
-.main-nav a:hover, .main-nav a.active {
+.main-nav a:hover,
+.main-nav a.active {
     background: #2a9d8f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* BANNER */
+/* ============================================
+   5. BANNER
+============================================ */
 .banner {
     position: relative;
     margin: 2rem auto;
     max-width: 1200px;
     border-radius: 15px;
     overflow: hidden;
+    aspect-ratio: 16/6;
 }
 
 .banner img {
     width: 100%;
-    height: 300px;
+    height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .banner-text {
     position: absolute;
     bottom: 20px;
     left: 30px;
-    background: rgba(42, 157, 143, 0.85);
+    background: rgba(42, 157, 143, 0.9);
     color: white;
     padding: 1rem 2rem;
     border-radius: 10px;
+    max-width: 80%;
 }
 
-/* LAYOUT KOLOM */
+.banner-text h2 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   6. MAIN LAYOUT & CONTAINER
+============================================ */
 .container {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -95,26 +176,72 @@ body {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
+    width: 100%;
 }
 
-/* SIDEBAR BUKU TAMU */
+/* ============================================
+   7. GUESTBOOK SIDEBAR
+============================================ */
 .guestbook {
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 150px;
 }
 
-.guestbook input, .guestbook textarea, .guestbook select {
+.guestbook h3 {
+    color: #264653;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #2a9d8f;
+    padding-bottom: 0.5rem;
+}
+
+.guestbook label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.guestbook input,
+.guestbook textarea,
+.guestbook select {
     width: 100%;
     margin-bottom: 1rem;
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.guestbook input:focus,
+.guestbook textarea:focus,
+.guestbook select:focus {
+    border-color: #2a9d8f;
+}
+
+.guestbook input::placeholder,
+.guestbook textarea::placeholder {
+    color: #888;
+    opacity: 0.8;
+}
+
+.guestbook select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1.5rem;
+    padding-right: 2.5rem;
 }
 
 .guestbook button {
-    background: #e76f51;
+    background: linear-gradient(135deg, #e76f51 0%, #f4a261 100%);
     color: white;
     border: none;
     padding: 1rem;
@@ -122,30 +249,176 @@ body {
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
 }
 
-/* PRODUK GRID */
-.product-grid, .catalog-grid {
+.guestbook button:hover {
+    background: linear-gradient(135deg, #d65c40 0%, #e68946 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 111, 81, 0.3);
+}
+
+/* ============================================
+   8. PRODUCT & CATALOG GRID
+============================================ */
+.product-grid,
+.catalog-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 1.5rem;
 }
 
-.product-item, .catalog-item {
+.product-item,
+.catalog-item {
     background: white;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.product-item:hover, .catalog-item:hover {
-    transform: translateY(-5px);
+.product-item:hover,
+.catalog-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* FOOTER */
+.product-item img,
+.catalog-item img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.product-item h4,
+.catalog-item h4 {
+    color: #264653;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    flex-grow: 1;
+}
+
+.product-item p,
+.catalog-item p {
+    color: #e76f51;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.product-item button,
+.catalog-item button {
+    background: #2a9d8f;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+    margin-top: auto;
+}
+
+.product-item button:hover,
+.catalog-item button:hover {
+    background: #21867a;
+}
+
+/* ============================================
+   9. CART SIDEBAR
+============================================ */
+.cart-sidebar {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    width: 280px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.cart-sidebar h3 {
+    color: #264653;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+}
+
+.cart-item-info h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.cart-item-info p {
+    color: #e76f51;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.cart-total {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid #2a9d8f;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #264653;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: #264653;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s;
+}
+
+.checkout-btn:hover {
+    background: #1d3557;
+}
+
+/* ============================================
+   10. FOOTER
+============================================ */
 .main-footer {
     background: #264653;
     color: white;
@@ -154,50 +427,112 @@ body {
     margin-top: 3rem;
 }
 
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .social-media {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
     margin: 1.5rem 0;
 }
 
+.social-media a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-media a:hover {
+    background: #2a9d8f;
+    transform: translateY(-3px);
+}
+
 .social-media img {
-    width: 35px;
-    height: 35px;
-    transition: transform 0.3s;
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
 }
 
-.social-media img:hover {
-    transform: scale(1.2);
+.copyright {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-/* KERANJANG SIDEBAR */
-.cart-sidebar {
-    position: fixed;
-    top: 150px;
-    right: 20px;
-    width: 280px;
-    background: white;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    z-index: 1000;
+/* ============================================
+   11. RESPONSIVE DESIGN
+============================================ */
+
+/* Tablet - Medium Screens */
+@media (max-width: 1024px) {
+    .product-grid,
+    .catalog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .container {
+        grid-template-columns: 1fr 2fr;
+        gap: 1.5rem;
+    }
+    
+    .cart-sidebar {
+        width: 250px;
+    }
 }
 
-/* RESPONSIVE DI MOBILE */
+/* Tablet - Small Screens */
 @media (max-width: 768px) {
     .main-header {
         flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .main-nav {
+        top: auto;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    
+    .main-nav a {
+        margin: 0.25rem 0;
+        display: block;
         text-align: center;
     }
     
     .container {
         grid-template-columns: 1fr;
+        padding: 0 0.5rem;
     }
     
-    .product-grid, .catalog-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .guestbook {
+        position: static;
+        margin-bottom: 2rem;
+    }
+    
+    .banner {
+        aspect-ratio: 16/7;
+        margin: 1rem;
+    }
+    
+    .banner-text {
+        left: 15px;
+        bottom: 15px;
+        padding: 0.8rem 1.5rem;
+        max-width: 90%;
     }
     
     .cart-sidebar {
@@ -206,5 +541,182 @@ body {
         top: auto;
         right: auto;
         margin-top: 2rem;
+        max-height: none;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .product-grid,
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .product-item,
+    .catalog-item {
+        padding: 1rem;
+    }
+    
+    .product-item img,
+    .catalog-item img {
+        height: 120px;
+    }
+    
+    .banner {
+        aspect-ratio: 16/8;
+        border-radius: 10px;
+        margin: 0.5rem;
+    }
+    
+    .social-media {
+        gap: 1rem;
+    }
+    
+    .social-media a {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .live-time {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+    .product-grid,
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-footer {
+        padding: 1.5rem;
+    }
+    
+    .guestbook {
+        padding: 1rem;
+    }
+    
+    .guestbook input,
+    .guestbook textarea,
+    .guestbook select {
+        padding: 0.6rem;
+    }
+}
+
+/* ============================================
+   12. UTILITY CLASSES
+============================================ */
+.hidden {
+    display: none !important;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+/* ============================================
+   13. ANIMATIONS
+============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-item,
+.catalog-item,
+.guestbook {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Loading animation for buttons */
+.loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   14. DARK MODE SUPPORT
+============================================ */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: #f0f0f0;
+    }
+    
+    .main-header,
+    .guestbook,
+    .product-item,
+    .catalog-item,
+    .cart-sidebar {
+        background: #1e293b;
+        color: #f0f0f0;
+    }
+    
+    .product-item h4,
+    .catalog-item h4,
+    .guestbook h3,
+    .cart-sidebar h3 {
+        color: #e2e8f0;
+    }
+    
+    .guestbook input,
+    .guestbook textarea,
+    .guestbook select {
+        background: #334155;
+        border-color: #475569;
+        color: #f0f0f0;
+    }
+    
+    .guestbook input::placeholder,
+    .guestbook textarea::placeholder {
+        color: #94a3b8;
     }
 }
