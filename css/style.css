@@ -1,6 +1,6 @@
 /* 
- * CSS Lengkap untuk Website E-commerce
- * Termasuk semua perbaikan dan optimasi
+ * CSS Lengkap untuk Website E-commerce - VERSION FIXED
+ * Semua kesalahan sudah diperbaiki
  */
 
 /* ============================================
@@ -22,6 +22,8 @@ body {
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ============================================
@@ -36,16 +38,16 @@ textarea:focus {
     outline-offset: 3px;
 }
 
-/* Skip to content for screen readers */
 .skip-to-content {
     position: absolute;
     top: -40px;
     left: 0;
     background: #264653;
     color: white;
-    padding: 8px;
+    padding: 8px 16px;
     z-index: 9999;
     text-decoration: none;
+    border-radius: 0 0 4px 0;
 }
 
 .skip-to-content:focus {
@@ -111,17 +113,22 @@ textarea:focus {
     list-style: none;
     padding: 1rem;
     margin: 0;
+    flex-wrap: wrap;
+}
+
+.main-nav li {
+    margin: 2px;
 }
 
 .main-nav a {
     color: white;
     text-decoration: none;
     padding: 0.5rem 1.5rem;
-    margin: 0 0.5rem;
     border-radius: 20px;
     transition: all 0.3s ease;
     font-weight: 500;
     display: inline-block;
+    white-space: nowrap;
 }
 
 .main-nav a:hover,
@@ -140,12 +147,11 @@ textarea:focus {
     max-width: 1200px;
     border-radius: 15px;
     overflow: hidden;
-    aspect-ratio: 16/6;
 }
 
 .banner img {
     width: 100%;
-    height: 100%;
+    height: 300px;
     object-fit: cover;
     display: block;
 }
@@ -154,16 +160,23 @@ textarea:focus {
     position: absolute;
     bottom: 20px;
     left: 30px;
+    right: 30px;
     background: rgba(42, 157, 143, 0.9);
     color: white;
     padding: 1rem 2rem;
     border-radius: 10px;
-    max-width: 80%;
+    max-width: 600px;
 }
 
 .banner-text h2 {
     font-size: clamp(1.2rem, 3vw, 2rem);
     margin-bottom: 0.5rem;
+}
+
+.banner-text .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffdd00;
 }
 
 /* ============================================
@@ -177,6 +190,7 @@ textarea:focus {
     margin: 2rem auto;
     padding: 0 1rem;
     width: 100%;
+    flex: 1;
 }
 
 /* ============================================
@@ -188,8 +202,6 @@ textarea:focus {
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     height: fit-content;
-    position: sticky;
-    top: 150px;
 }
 
 .guestbook h3 {
@@ -205,6 +217,7 @@ textarea:focus {
     margin-bottom: 0.5rem;
     color: #555;
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .guestbook input,
@@ -212,17 +225,21 @@ textarea:focus {
 .guestbook select {
     width: 100%;
     margin-bottom: 1rem;
-    padding: 0.8rem;
+    padding: 0.8rem 1rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s;
+    background: #f8f9fa;
 }
 
 .guestbook input:focus,
 .guestbook textarea:focus,
 .guestbook select:focus {
     border-color: #2a9d8f;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
+    outline: none;
 }
 
 .guestbook input::placeholder,
@@ -233,11 +250,17 @@ textarea:focus {
 
 .guestbook select {
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 0.7rem center;
-    background-size: 1.5rem;
+    background-position: right 1rem center;
+    background-size: 1rem;
     padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+.guestbook textarea {
+    min-height: 100px;
+    resize: vertical;
 }
 
 .guestbook button {
@@ -252,6 +275,7 @@ textarea:focus {
     font-size: 1rem;
     transition: all 0.3s ease;
     margin-top: 0.5rem;
+    letter-spacing: 0.5px;
 }
 
 .guestbook button:hover {
@@ -260,19 +284,31 @@ textarea:focus {
     box-shadow: 0 4px 12px rgba(231, 111, 81, 0.3);
 }
 
+.guestbook button:active {
+    transform: translateY(0);
+}
+
 /* ============================================
    8. PRODUCT & CATALOG GRID
 ============================================ */
-.product-grid,
-.catalog-grid {
+.product-section {
+    margin-top: 1rem;
+}
+
+.product-section h2 {
+    color: #264653;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.product-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
-    margin-top: 1.5rem;
 }
 
-.product-item,
-.catalog-item {
+.product-item {
     background: white;
     padding: 1.5rem 1rem;
     border-radius: 10px;
@@ -282,41 +318,44 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     height: 100%;
+    border: 1px solid #f0f0f0;
 }
 
-.product-item:hover,
-.catalog-item:hover {
+.product-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    border-color: #2a9d8f;
 }
 
-.product-item img,
-.catalog-item img {
-    max-width: 100%;
+.product-item img {
+    width: 100%;
     height: 150px;
     object-fit: contain;
     margin-bottom: 1rem;
     border-radius: 5px;
+    background: #f8f9fa;
+    padding: 10px;
 }
 
-.product-item h4,
-.catalog-item h4 {
+.product-item h4 {
     color: #264653;
     margin: 0.5rem 0;
     font-size: 1rem;
     flex-grow: 1;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.product-item p,
-.catalog-item p {
+.product-item p {
     color: #e76f51;
     font-weight: bold;
     font-size: 1.1rem;
     margin: 0.5rem 0;
 }
 
-.product-item button,
-.catalog-item button {
+.product-item button {
     background: #2a9d8f;
     color: white;
     border: none;
@@ -324,23 +363,61 @@ textarea:focus {
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    transition: background 0.3s;
+    transition: all 0.3s;
     margin-top: auto;
+    font-size: 0.9rem;
 }
 
-.product-item button:hover,
-.catalog-item button:hover {
+.product-item button:hover {
     background: #21867a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(42, 157, 143, 0.3);
 }
 
 /* ============================================
-   9. CART SIDEBAR
+   9. AD SECTION
+============================================ */
+.ad-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.ad-col {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+}
+
+.ad-col:hover {
+    transform: translateY(-5px);
+    border-color: #2a9d8f;
+    border-style: solid;
+}
+
+.ad-placeholder {
+    color: #666;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   10. CART SIDEBAR (Untuk halaman katalog)
 ============================================ */
 .cart-sidebar {
     position: fixed;
     top: 150px;
     right: 20px;
-    width: 280px;
+    width: 300px;
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
@@ -348,16 +425,21 @@ textarea:focus {
     z-index: 1000;
     max-height: calc(100vh - 200px);
     overflow-y: auto;
+    border: 2px solid #2a9d8f;
 }
 
 .cart-sidebar h3 {
     color: #264653;
     margin-bottom: 1rem;
     font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .cart-item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 0.8rem 0;
     border-bottom: 1px solid #eee;
@@ -367,27 +449,34 @@ textarea:focus {
     border-bottom: none;
 }
 
-.cart-item img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 1rem;
-}
-
 .cart-item-info {
     flex-grow: 1;
 }
 
-.cart-item-info h4 {
+.cart-item-name {
+    font-weight: 600;
+    color: #264653;
     font-size: 0.9rem;
-    margin-bottom: 0.2rem;
 }
 
-.cart-item-info p {
+.cart-item-price {
     color: #e76f51;
     font-weight: bold;
     font-size: 0.9rem;
+}
+
+.cart-item button {
+    background: #e76f51;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cart-total {
@@ -397,11 +486,12 @@ textarea:focus {
     font-weight: bold;
     font-size: 1.1rem;
     color: #264653;
+    text-align: center;
 }
 
 .checkout-btn {
     width: 100%;
-    background: #264653;
+    background: linear-gradient(135deg, #264653 0%, #1d3557 100%);
     color: white;
     border: none;
     padding: 1rem;
@@ -409,34 +499,83 @@ textarea:focus {
     font-weight: bold;
     cursor: pointer;
     margin-top: 1rem;
-    transition: background 0.3s;
+    transition: all 0.3s;
+    font-size: 1rem;
 }
 
-.checkout-btn:hover {
-    background: #1d3557;
+.checkout-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #1d3557 0%, #0f172a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(38, 70, 83, 0.3);
+}
+
+.checkout-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.clear-btn {
+    width: 100%;
+    background: #e76f51;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.3s;
+}
+
+.clear-btn:hover {
+    background: #d65c40;
+    transform: translateY(-2px);
 }
 
 /* ============================================
-   10. FOOTER
+   11. FOOTER
 ============================================ */
 .main-footer {
     background: #264653;
     color: white;
-    padding: 2rem;
+    padding: 2rem 1rem;
     text-align: center;
     margin-top: 3rem;
 }
 
-.footer-content {
+.footer-container {
     max-width: 1200px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: left;
+}
+
+.footer-info h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #2a9d8f;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.footer-info p {
+    margin: 0.5rem 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .social-media {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
     margin: 1.5rem 0;
 }
 
@@ -444,8 +583,8 @@ textarea:focus {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     transition: all 0.3s ease;
@@ -453,44 +592,64 @@ textarea:focus {
 
 .social-media a:hover {
     background: #2a9d8f;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.1);
 }
 
 .social-media img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     filter: brightness(0) invert(1);
 }
 
 .copyright {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    grid-column: 1 / -1;
 }
 
 /* ============================================
-   11. RESPONSIVE DESIGN
+   12. RESPONSIVE DESIGN - CORRECT ORDER
 ============================================ */
 
-/* Tablet - Medium Screens */
-@media (max-width: 1024px) {
-    .product-grid,
-    .catalog-grid {
-        grid-template-columns: repeat(3, 1fr);
+/* Desktop Large (1200px+) - default styles sudah di atas */
+
+/* Tablet Large (1024px - 1199px) */
+@media (max-width: 1199px) {
+    .container {
+        max-width: 1000px;
     }
     
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Tablet Medium (992px - 1023px) */
+@media (max-width: 1023px) {
     .container {
         grid-template-columns: 1fr 2fr;
         gap: 1.5rem;
     }
     
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
     .cart-sidebar {
-        width: 250px;
+        width: 280px;
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Tablet - Small Screens */
-@media (max-width: 768px) {
+/* Tablet Small (768px - 991px) */
+@media (max-width: 991px) {
     .main-header {
         flex-direction: column;
         text-align: center;
@@ -500,22 +659,24 @@ textarea:focus {
     
     .main-nav {
         top: auto;
+        position: relative;
     }
     
     .main-nav ul {
         flex-direction: column;
         padding: 0.5rem;
+        gap: 0.5rem;
     }
     
     .main-nav a {
-        margin: 0.25rem 0;
-        display: block;
+        margin: 0;
+        width: 100%;
         text-align: center;
     }
     
     .container {
         grid-template-columns: 1fr;
-        padding: 0 0.5rem;
+        padding: 0 1rem;
     }
     
     .guestbook {
@@ -524,15 +685,16 @@ textarea:focus {
     }
     
     .banner {
-        aspect-ratio: 16/7;
-        margin: 1rem;
+        margin: 1rem auto;
+        border-radius: 10px;
     }
     
     .banner-text {
         left: 15px;
         bottom: 15px;
-        padding: 0.8rem 1.5rem;
-        max-width: 90%;
+        right: 15px;
+        padding: 1rem;
+        max-width: none;
     }
     
     .cart-sidebar {
@@ -543,56 +705,83 @@ textarea:focus {
         margin-top: 2rem;
         max-height: none;
     }
+    
+    .ad-section {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* Mobile */
-@media (max-width: 480px) {
-    .product-grid,
-    .catalog-grid {
+/* Mobile Large (576px - 767px) */
+@media (max-width: 767px) {
+    .product-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
     
-    .product-item,
-    .catalog-item {
-        padding: 1rem;
-    }
-    
-    .product-item img,
-    .catalog-item img {
-        height: 120px;
-    }
-    
-    .banner {
-        aspect-ratio: 16/8;
-        border-radius: 10px;
-        margin: 0.5rem;
+    .banner img {
+        height: 200px;
     }
     
     .social-media {
-        gap: 1rem;
+        gap: 0.8rem;
     }
     
     .social-media a {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
     
     .live-time {
         font-size: 0.8rem;
         padding: 0.4rem 0.8rem;
     }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-info {
+        text-align: center;
+    }
 }
 
-/* Small Mobile */
-@media (max-width: 360px) {
-    .product-grid,
-    .catalog-grid {
+/* Mobile Medium (480px - 575px) */
+@media (max-width: 575px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .product-item {
+        padding: 1rem 0.8rem;
+    }
+    
+    .product-item img {
+        height: 120px;
+    }
+    
+    .banner {
+        margin: 0.5rem;
+        border-radius: 8px;
+    }
+    
+    .ad-col {
+        padding: 1.5rem 1rem;
+        min-height: 120px;
+    }
+}
+
+/* Mobile Small (360px - 479px) */
+@media (max-width: 479px) {
+    .product-grid {
         grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
     }
     
     .main-footer {
-        padding: 1.5rem;
+        padding: 1.5rem 0.5rem;
     }
     
     .guestbook {
@@ -602,27 +791,61 @@ textarea:focus {
     .guestbook input,
     .guestbook textarea,
     .guestbook select {
+        padding: 0.7rem;
+    }
+    
+    .title h1 {
+        font-size: 1.3rem;
+    }
+    
+    .banner-text h2 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Extra Small Mobile (max-width: 359px) */
+@media (max-width: 359px) {
+    .main-header {
+        padding: 0.8rem;
+    }
+    
+    .logo img {
+        height: 45px;
+    }
+    
+    .product-item button {
         padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .social-media a {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .social-media img {
+        width: 16px;
+        height: 16px;
     }
 }
 
 /* ============================================
-   12. UTILITY CLASSES
+   13. UTILITY CLASSES
 ============================================ */
 .hidden {
     display: none !important;
 }
 
 .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
 }
 
 .text-center {
@@ -636,8 +859,17 @@ textarea:focus {
 .mb-2 { margin-bottom: 1rem; }
 .mb-3 { margin-bottom: 1.5rem; }
 
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+
 /* ============================================
-   13. ANIMATIONS
+   14. ANIMATIONS
 ============================================ */
 @keyframes fadeIn {
     from {
@@ -650,16 +882,38 @@ textarea:focus {
     }
 }
 
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .product-item,
-.catalog-item,
-.guestbook {
+.guestbook,
+.ad-col {
     animation: fadeIn 0.5s ease-out;
+}
+
+.cart-sidebar {
+    animation: slideIn 0.3s ease-out;
 }
 
 /* Loading animation for buttons */
 .loading {
     position: relative;
     color: transparent !important;
+    pointer-events: none;
 }
 
 .loading::after {
@@ -676,14 +930,8 @@ textarea:focus {
     animation: spin 0.8s linear infinite;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 /* ============================================
-   14. DARK MODE SUPPORT
+   15. DARK MODE SUPPORT
 ============================================ */
 @media (prefers-color-scheme: dark) {
     body {
@@ -694,16 +942,18 @@ textarea:focus {
     .main-header,
     .guestbook,
     .product-item,
-    .catalog-item,
-    .cart-sidebar {
+    .ad-col,
+    .cart-sidebar,
+    .product-section {
         background: #1e293b;
         color: #f0f0f0;
+        border-color: #334155;
     }
     
     .product-item h4,
-    .catalog-item h4,
     .guestbook h3,
-    .cart-sidebar h3 {
+    .cart-sidebar h3,
+    .product-section h2 {
         color: #e2e8f0;
     }
     
@@ -719,123 +969,54 @@ textarea:focus {
     .guestbook textarea::placeholder {
         color: #94a3b8;
     }
+    
+    .ad-col {
+        border-color: #475569;
+    }
+    
+    .ad-placeholder {
+        color: #94a3b8;
+    }
 }
-
-/* TAMBAHKAN INI DI AKHIR CSS LAMA ANDA */
 
 /* ============================================
-   PENYESUAIAN UNTUK HTML BARU
+   16. PRINT STYLES
 ============================================ */
-
-/* Guestbook Card */
-.guestbook-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.guestbook-header {
-    background: linear-gradient(135deg, #2a9d8f 0%, #21867a 100%);
-    color: white;
-    padding: 1.5rem;
-    text-align: center;
-}
-
-.guestbook-header i {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.guestbook-header h3 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
-/* Form Group */
-.form-group {
-    margin-bottom: 1.2rem;
-}
-
-.form-group label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #264653;
-    font-weight: 600;
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s;
-    background: #f8f9fa;
-}
-
-/* Main Content */
-.main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-/* Ad Section */
-.ad-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.ad-col {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-/* Product Section */
-.product-section {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-/* Footer Container */
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-/* Responsive untuk kelas baru */
-@media (max-width: 768px) {
+@media print {
+    .main-nav,
+    .guestbook button,
+    .product-item button,
+    .cart-sidebar,
+    .social-media,
     .ad-section {
-        grid-template-columns: 1fr;
+        display: none !important;
     }
     
-    .footer-container {
+    .container {
         grid-template-columns: 1fr;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
     }
     
-    .guestbook-card {
-        margin-bottom: 2rem;
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.5rem;
+    }
+    
+    .product-item {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        page-break-inside: avoid;
+    }
+    
+    .main-header {
+        position: static !important;
+        box-shadow: none !important;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: none !important;
     }
 }
