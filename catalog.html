@@ -1,134 +1,46 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Katalog produk A-Mart Katapang. Belanja beras, minyak, telur, daging, dan sembako lainnya dengan harga terjangkau.">
-    <meta name="keywords" content="katalog, harga beras, harga minyak, harga telur, sembako, belanja online">
-    
-    <title>Katalog Produk - A-Mart Katapang</title>
-    
-    <!-- CSS GLOBAL -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/elegant-colors.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    
-    <!-- CSS KHUSUS KATALOG -->
-    <link rel="stylesheet" href="css/catalog.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="assets/images/favicon.ico">
-    
-    <!-- Mobile-specific meta tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#2a9d8f">
+    <!-- Meta tag sama -->
+    <title>A-Mart Katapang - Katalog</title>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="main-header">
-        <div class="logo">
-            <img src="assets/images/logo.png" alt="A-Mart Katapang Logo" width="60" 
-                 onerror="this.src='https://via.placeholder.com/60x60?text=A+Mart'">
-        </div>
-        <div class="title">
-            <h1>A-Mart Katapang</h1>
-            <p>Katalog Produk</p>
-        </div>
-        <div class="live-time" id="liveTime">
-            <!-- Waktu akan diisi JS -->
-        </div>
-        
-        <!-- MOBILE MENU TOGGLE -->
-        <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobileMenuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </header>
+    <!-- Header & Nav sama -->
 
-    <!-- NAVIGASI -->
-    <nav class="main-nav" id="mainNav">
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="location.html">Lokasi</a></li>
-            <li><a href="catalog.html" class="active">Katalog & Belanja</a></li>
-            <li><a href="feedback.html">Saran & Donasi</a></li>
-        </ul>
-    </nav>
+    <main class="catalog-page">
+        <h2>Katalog Produk</h2>
+        <div class="filter">
+            <button class="filter-btn active" data-category="all">Semua</button>
+            <button class="filter-btn" data-category="pcs">Per Pcs</button>
+            <button class="filter-btn" data-category="kilo">Per Kilo</button>
+        </div>
 
-    <!-- KONTEN UTAMA -->
-    <main class="catalog-container">
-        <h2 class="page-title">🛍️ Katalog Produk Kami</h2>
-        <p class="page-subtitle">Klik produk untuk menambahkan ke keranjang belanja</p>
-        
-        <!-- FILTER -->
-        <div class="filter-section">
-            <button class="filter-btn active" data-filter="all">Semua Produk</button>
-            <button class="filter-btn" data-filter="sembako">Sembako</button>
-            <button class="filter-btn" data-filter="daging">Daging & Ikan</button>
-            <button class="filter-btn" data-filter="buah">Buah & Sayur</button>
-        </div>
-        
-        <!-- MOBILE CART TOGGLE -->
-        <button class="mobile-cart-toggle" id="mobileCartToggle">
-            🛒 Keranjang <span id="cart-badge" class="cart-badge">0</span>
-        </button>
-        
-        <!-- CART OVERLAY -->
-        <div class="cart-overlay" id="cartOverlay"></div>
-        
-        <!-- KERANJANG SIDEBAR -->
-        <div id="cart-sidebar" class="cart-sidebar">
-            <div class="cart-header">
-                <h3>🛒 Keranjang Belanja</h3>
-                <button class="close-cart" id="closeCart">&times;</button>
-            </div>
-            <div id="cart-items">
-                <!-- Item keranjang akan diisi oleh JavaScript -->
-            </div>
-            <div class="cart-total">
-                <p>Total: <span id="cart-total-price">Rp 0</span></p>
-            </div>
-            <button id="checkout-btn" class="checkout-btn" disabled>
-                Checkout via WhatsApp
-            </button>
-            <button id="clear-cart" class="clear-btn">
-                Hapus Semua
-            </button>
-        </div>
-        
-        <!-- PRODUK GRID -->
         <div class="catalog-grid">
-            <!-- Produk akan di-generate oleh JavaScript -->
+            <!-- Contoh 1 produk -->
+            <div class="catalog-item" data-price-pcs="5000" data-price-kilo="28000" data-category="pcs kilo">
+                <img src="assets/products/telur.jpg" alt="Telur Ayam" onclick="addToCart('Telur Ayam', 5000, 'pcs')">
+                <h4>Telur Ayam</h4>
+                <p class="price">Rp 5.000 / pcs</p>
+                <p class="price-kilo">Rp 28.000 / kg</p>
+                <button onclick="addToCart('Telur Ayam', 5000, 'pcs')">+ Keranjang</button>
+            </div>
+            <!-- Produk lainnya -->
         </div>
-        
-        <!-- LOAD MORE BUTTON -->
-        <div class="load-more-section">
-            <button class="load-more-btn" id="loadMore">
-                Tampilkan Lebih Banyak Produk
-            </button>
+
+        <!-- KERANJANG MINIMALIS (muncul saat ada item) -->
+        <div id="cartSidebar" class="cart-sidebar">
+            <h3>🛒 Keranjang (<span id="cartCount">0</span>)</h3>
+            <div id="cartItems">
+                <!-- Item muncul di sini via JS -->
+            </div>
+            <p>Total: Rp <span id="cartTotal">0</span></p>
+            <button onclick="clearCart()">Hapus Semua</button>
+            <button onclick="checkout()">Checkout via WhatsApp</button>
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="main-footer">
-        <div class="footer-content">
-            <p>&copy; <span id="currentYear">2025</span> A-Mart Katapang. All rights reserved.</p>
-            <p>📞 (+62) 811-1112-0670 | 📍 Jl. Katapang Indah No. 123</p>
-            <p class="footer-note">🕒 Buka: 06:00 - 22:00 WIB | Setiap Hari</p>
-        </div>
-    </footer>
+    <!-- Footer sama -->
 
-    <!-- JAVASCRIPT -->
-    <script src="js/datetime.js"></script>      <!-- Waktu live -->
-    <script src="js/cart.js"></script>          <!-- Cart global -->
-    <script src="js/catalog.js"></script>       <!-- Katalog khusus -->
-    
-    <!-- Inline script kecil untuk current year -->
-    <script>
-        // Update current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
+    <script src="js/cart.js"></script>
 </body>
 </html>
