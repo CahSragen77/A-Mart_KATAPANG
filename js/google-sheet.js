@@ -17,7 +17,7 @@
 // ============================================
 const GOOGLE_SHEETS_CONFIG = {
     // Ganti dengan URL Web App Anda
-    WEB_APP_URL: 'https://script.google.com/macros/s/AKfycbwYOUR_SCRIPT_ID/exec',
+    WEB_APP_URL: 'github.com/CahSragen77/A-Mart_KATAPANG/blob/main/js/google-sheet.js',
     
     // Sheet name
     SHEET_NAME: 'BukuTamu',
