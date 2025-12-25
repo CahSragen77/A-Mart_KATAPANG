@@ -4,7 +4,7 @@
 const LOCATION_CONFIG = {
     name: "A-Mart Katapang",
     address: "Bojong Salak, No. 1 RT / RW : 1 / 21, Cilampeni, Kec : KATAPANG, Kab : Bandung, Jawa Barat 40921",
-    phone: "62811-1112-0670",
+    phone: "081111120670",
     whatsapp: "62811-1112-0670",
     latitude: -6.934952,
     longitude: 107.552441,
