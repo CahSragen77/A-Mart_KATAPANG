@@ -1,4 +1,4 @@
-a-mart-katapang/
+a-mart-kolmas/
 │
 ├── index.html              # Halaman 1 - Beranda
 ├── location.html           # Halaman 2 - Lokasi
